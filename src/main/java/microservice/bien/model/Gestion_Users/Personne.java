@@ -1,0 +1,135 @@
+package microservice.bien.model.Gestion_Users;
+
+import microservice.bien.model.BaseEntity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name= "personne")
+@Inheritance(strategy=InheritanceType.JOINED)
+public abstract class Personne extends BaseEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name ="id")
+    protected Long id;
+
+    @Column(name = "nom", nullable = false)
+    protected String nom;
+
+    @Column(name = "prenom", nullable = false)
+    protected String prenom;
+
+    @Column(name = "adress", nullable = false)
+    protected String adress;
+
+    @Column(name = "email", nullable = false)
+    protected String email;
+
+    @Column(name = "telephone", nullable = false)
+    protected String telephone;
+
+
+    @Column(name = "username", nullable = false)
+    protected String username;
+
+
+    @Column(name = "password", nullable = false)
+    protected String password;
+
+    public Personne(){
+
+    }
+
+
+    public Personne(String nom, String prenom, String adress, String email, String telephone,String username,String password) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adress = adress;
+        this.email = email;
+        this.telephone = telephone;
+        this.password = password;
+        this.username = username;
+
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Personne{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", adress='" + adress + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+
+                '}';
+
+    }
+}
