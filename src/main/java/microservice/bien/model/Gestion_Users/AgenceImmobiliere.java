@@ -6,7 +6,7 @@ import sun.security.krb5.internal.PAEncTSEnc;
 import javax.persistence.*;
 
 @Entity
-public class    AgenceImmobiliere extends BaseEntity {
+public class AgenceImmobiliere extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id_agenceimmobiliere")
@@ -28,7 +28,8 @@ public class    AgenceImmobiliere extends BaseEntity {
         this.adress = adress;
     }
 
-    public Integer getId_agenceimmobiliere() {
+    public Integer getId_agenceimmobiliere()
+    {
         return id_agenceimmobiliere;
     }
 

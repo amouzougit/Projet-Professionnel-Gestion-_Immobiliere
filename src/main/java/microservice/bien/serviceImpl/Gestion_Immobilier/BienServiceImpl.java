@@ -15,7 +15,8 @@ public class BienServiceImpl implements BienService {
 	public List<Bien> listBiens() {
 		return this.bienDao.findAll();
 	}
-
+	
+	@Override
 	public Bien getById(Long id) {
 		return this.bienDao.getOne(id);
 	}

@@ -1,12 +1,10 @@
 package microservice.bien.service.Gestion_publication;
-
-
 import microservice.bien.model.Gestion_publication.Publication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service()
+@Service(value = "publicationService")
 public interface PublicationService {
 
     public List<Publication> getAll();

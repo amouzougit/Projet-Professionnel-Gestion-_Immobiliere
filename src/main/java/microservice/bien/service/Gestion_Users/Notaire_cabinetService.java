@@ -1,6 +1,5 @@
 package microservice.bien.service.Gestion_Users;
 
-import microservice.bien.dao.Gestion_Users.Notaire_cabinetDao;
 import microservice.bien.model.Gestion_Users.Notaire_cabinet;
 
 import java.util.List;

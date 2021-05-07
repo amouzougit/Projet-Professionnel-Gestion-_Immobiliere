@@ -5,7 +5,6 @@ import java.util.Date;
 
 @MappedSuperclass
 public class BaseEntity {
-
 	@Column(name = "createdBy", nullable = false)
 	protected Long createdBy;
 

@@ -14,32 +14,29 @@ public class CabinetServiceImpl implements CabinetService {
 	@Qualifier(value="cabinetDao")
 	private CabinetDao cabinetDao;
 
-
-	public List<Cabinet> getAll() {
+	public List<Cabinet> getAll()
+	{
 		return this.cabinetDao.findAll();
 	}
 
-
-	public Cabinet getById(Integer id) {
+	public Cabinet getById(Integer id)
+	{
 		return this.cabinetDao.getOne(id);
 	}
 
-
-	public Cabinet save(Cabinet cabinet) {
+	public Cabinet save(Cabinet cabinet)
+	{
 		return this.cabinetDao.save(cabinet);
 	}
 
-
-	public List<Cabinet> saveAll(List<Cabinet> cabinets) {
+	public List<Cabinet> saveAll(List<Cabinet> cabinets)
+	{
 		return this.cabinetDao.saveAll(cabinets);
 	}
 
-
 	public void delete(Cabinet cabinet) {
 		this.cabinetDao.delete(cabinet);
-
 	}
-
 
 	public void deleteAll() {
 		this.cabinetDao.deleteAll();

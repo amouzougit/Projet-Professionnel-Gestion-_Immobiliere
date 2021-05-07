@@ -15,40 +15,29 @@ public class Caracteristique_BienServiceImpl  implements Caracteristique_BienSer
 @Qualifier(value="caracteristique_bienDao")
 	private Caracteristique_BienDao caracteristique_bienDao;
 
-
-
 	public List<Caracteristique_Bien> getAll() {
 		return this.caracteristique_bienDao.findAll();
 	}
 
-
-	public Caracteristique_Bien getById() {
-		return this.caracteristique_bienDao.getOne(Integer id);
+	public Caracteristique_Bien getById(Integer id) {
+		return this.caracteristique_bienDao.getOne(id);
 	}
 
-
 	public Caracteristique_Bien save(Caracteristique_Bien caracteristique_bien) {
-
-
 		 return this.caracteristique_bienDao.save(caracteristique_bien);
 	}
 
 	public List<Caracteristique_Bien> saveAll(List<Caracteristique_Bien> caracteristique_biens) {
-
 		return this.caracteristique_bienDao.saveAll(caracteristique_biens);
 	}
 
-
 	public void delete(Caracteristique_Bien caracteristique_bien) {
 		this.caracteristique_bienDao.delete(caracteristique_bien);
-
 	}
-
 
 	public void deleteAll() {
 		this.caracteristique_bienDao.deleteAll();
 
 	}
-
 
 }

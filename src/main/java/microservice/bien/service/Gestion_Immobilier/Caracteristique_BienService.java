@@ -11,7 +11,7 @@ import java.util.List;
 public interface Caracteristique_BienService {
     public List<Caracteristique_Bien> getAll();
 
-    public Caracteristique_Bien getById();
+    public Caracteristique_Bien getById(Integer id);
 
     public Caracteristique_Bien save(Caracteristique_Bien id_caracteristique_bien);
 
