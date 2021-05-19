@@ -5,7 +5,7 @@ import microservice.bien.model.Gestion_Users.SAV;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service()
+@Service("sacService")
 public interface SAVService {
 
     public List<SAV> getAll();

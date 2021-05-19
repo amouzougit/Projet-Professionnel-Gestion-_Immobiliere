@@ -11,7 +11,7 @@ import java.util.List;
 @Service("publicationService")
 public class PublicationServiceImpl implements PublicationService {
 	@Autowired
-	@Qualifier(value ="publicationDao")
+	//@Qualifier(value ="publicationDao")
 	private PublicationDao publicationDao;
 
 	@Override

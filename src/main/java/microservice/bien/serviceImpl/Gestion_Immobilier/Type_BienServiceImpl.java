@@ -15,7 +15,7 @@ import java.util.List;
 public class Type_BienServiceImpl implements Type_BienService {
 
 	@Autowired
-	@Qualifier(value ="type_bienDao")
+	//@Qualifier(value ="type_bienDao")
 	private Type_BienDao type_bienDao;
 
 	@Override

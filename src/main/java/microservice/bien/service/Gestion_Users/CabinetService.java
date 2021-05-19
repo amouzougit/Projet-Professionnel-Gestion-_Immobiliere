@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service()
+@Service("cabinetService")
 public interface CabinetService {
 
     public List<Cabinet> getAll();

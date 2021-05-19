@@ -2,6 +2,8 @@ package microservice.bien.serviceImpl.Gestion_Achat_Location;
 
 import microservice.bien.dao.Gestion_Achat_Location.Document_OperationDao;
 import microservice.bien.model.Gestion_Achat_Location.Document_Operation;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,9 @@ import java.util.List;
 @Service("document_OperationService")
 public class Document_OperationServiceImpl  implements Document_OperationService {
 
-@Qualifier(value = "document_operationdao")
+	@Autowired
+	//@Qualifier(value = "document_operationdao")
     private Document_OperationDao document_OperationDao;
-
 
 
     public List<Document_Operation> getAll() {

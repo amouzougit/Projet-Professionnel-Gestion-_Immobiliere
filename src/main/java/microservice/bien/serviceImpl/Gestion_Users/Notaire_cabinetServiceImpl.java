@@ -11,7 +11,7 @@ import java.util.List;
 @Service()
 public class Notaire_cabinetServiceImpl implements Notaire_cabinetService {
     @Autowired
-    @Qualifier(value="notaire_cabinetDao")
+    //@Qualifier(value="notaire_cabinetDao")
     private Notaire_cabinetDao notaire_cabinetDao;
 
 

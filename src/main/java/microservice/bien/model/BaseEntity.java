@@ -20,8 +20,7 @@ public class BaseEntity {
 	public BaseEntity(){
 
 	}
-
-
+	
 	public BaseEntity(Long createdBy, Date createdDate, Long lastModifiedBy, Date lastModifiedDate) {
 		this.createdBy = createdBy;
 		this.createdDate = createdDate;

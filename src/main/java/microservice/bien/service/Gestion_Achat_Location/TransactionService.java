@@ -4,18 +4,21 @@ import microservice.bien.model.Gestion_Achat_Location.Document_Operation;
 
 import java.util.List;
 
+import microservice.bien.model.Gestion_Achat_Location.Transaction;
+import org.springframework.stereotype.Service;
+@Service("transactionService")
 public interface TransactionService {
 
 
-    public List<Document_Operation> getAll();
+    public List<Transaction> getAll();
 
-    public Document_Operation getById(Integer id);
+    public Transaction getById(Integer id);
 
-    public Document_Operation save(Document_Operation document_operation);
+    public Transaction save(Transaction transaction);
 
-    public List<Document_Operation> saveAll(List<Document_Operation>document_operations);
+    public List<Transaction> saveAll(List<Transaction>transactions);
 
-    public  void delete(Document_Operation document_operation);
+    public  void delete(Transaction transaction);
 
     public void deleteAll();
 

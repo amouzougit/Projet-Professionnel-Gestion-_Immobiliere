@@ -13,7 +13,7 @@ import java.util.List;
 public class PersonneServiceImpl implements PersonneService {
 
     @Autowired
-    @Qualifier(value="personneDao")
+    //@Qualifier(value="personneDao")
     private PersonneDao personneDao;
 
     @Override

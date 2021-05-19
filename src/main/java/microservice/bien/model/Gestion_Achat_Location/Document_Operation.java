@@ -31,7 +31,7 @@ public class Document_Operation extends BaseEntity {
         this.code = code;
         this.libelle = libelle;
     }
-
+    
     public Integer getId_document_operation() {
         return id_document_operation;
     }

@@ -12,7 +12,7 @@ import java.util.List;
 public class Document_BienServiceImpl implements Document_BienService {
 
 	@Autowired
-	@Qualifier(value="document_bienDao")
+	//@Qualifier(value="document_bienDao")
 	private Document_BienDao document_bienDao;
 
 	public List<Document_Bien> listDocumentBien() {

@@ -13,7 +13,7 @@ import java.util.List;
 @Service("notaireService")
 public class NotaireServiceImpl implements NotaireService {
 	@Autowired
-	@Qualifier(value="notaireDao")
+	//@Qualifier(value="notaireDao")
 	private NotaireDao notaireDao;
 
 	@Override

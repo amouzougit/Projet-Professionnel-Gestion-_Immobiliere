@@ -40,7 +40,6 @@ public abstract class Personne extends BaseEntity {
 
     }
 
-
     public Personne(String nom, String prenom, String adress, String email, String telephone,String username,String password) {
         this.nom = nom;
         this.prenom = prenom;

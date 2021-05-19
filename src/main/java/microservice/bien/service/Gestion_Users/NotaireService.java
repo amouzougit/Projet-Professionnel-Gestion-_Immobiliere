@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("notaireService")
 public interface NotaireService {
 
     public List<Notaire> getAll();

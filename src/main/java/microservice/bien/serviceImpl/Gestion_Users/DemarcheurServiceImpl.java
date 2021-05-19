@@ -12,7 +12,7 @@ import java.util.List;
 public class DemarcheurServiceImpl implements DemarcheurService {
 
 	@Autowired
-	@Qualifier(value="demarcheurDao")
+	//@Qualifier(value="demarcheurDao")
 	private DemarcheurDao demarcheurDao;
 	@Override
 	public List<Demarcheur> getAll() {

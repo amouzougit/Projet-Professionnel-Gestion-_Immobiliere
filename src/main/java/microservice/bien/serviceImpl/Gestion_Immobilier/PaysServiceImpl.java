@@ -12,7 +12,7 @@ import java.util.List;
 public class PaysServiceImpl  implements PaysService {
 
 	@Autowired
-	@Qualifier(value="paysDao")
+	//@Qualifier(value="paysDao")
 	private PaysDao paysDao;
 	@Override
 	public List<Pays> getAll() {

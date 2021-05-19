@@ -12,7 +12,7 @@ import java.util.List;
 @Service("clientService")
 public class ClientServiceImpl implements ClientService {
 		@Autowired
-		@Qualifier(value="clientDao")
+		//@Qualifier(value="clientDao")
 		private ClientDao clientDao;
 
 	@Override

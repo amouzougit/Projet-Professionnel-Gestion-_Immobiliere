@@ -6,12 +6,12 @@ import microservice.bien.service.Gestion_Users.AdministrateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
 @Service("administrateurService")
 public class AdministrateurServiceImpl implements AdministrateurService {
 	@Autowired
-	@Qualifier(value="administrateurService")
+	//@Qualifier(value="administrateurService")
 	private AdministrateurDao administrateurDao;
 
 	@Override

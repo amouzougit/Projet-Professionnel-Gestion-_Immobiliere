@@ -13,7 +13,7 @@ import java.util.List;
 @Service("mode_transactionService")
 public class Mode_TransactionServiceImpl implements Mode_TransactionService {
 	@Autowired
-	@Qualifier(value="mode_transactionDao")
+	//@Qualifier(value="mode_transactionDao")
 	private Mode_TransactionDao mode_transactionDao;
 
 	@Override

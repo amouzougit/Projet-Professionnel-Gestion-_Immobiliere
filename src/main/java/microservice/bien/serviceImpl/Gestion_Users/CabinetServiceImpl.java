@@ -11,11 +11,11 @@ import java.util.List;
 @Service("cabinetService")
 public class CabinetServiceImpl implements CabinetService {
 	@Autowired
-	@Qualifier(value="cabinetDao")
+	//@Qualifier(value="cabinetDao")
 	private CabinetDao cabinetDao;
 
-	public List<Cabinet> getAll()
-	{
+	public List<Cabinet> getAll(){
+	
 		return this.cabinetDao.findAll();
 	}
 

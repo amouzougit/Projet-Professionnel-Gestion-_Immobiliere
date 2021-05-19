@@ -5,12 +5,14 @@ import microservice.bien.model.Gestion_Immobilier.Quartier;
 import microservice.bien.service.Gestion_Immobilier.QuartierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("quartierService")
 public class QuartierServiceImpl implements QuartierService {
 	@Autowired
-	@Qualifier(value ="quartierDao")
+	//@Qualifier(value ="quartierDao")
 	private QuartierDao quartierDao;
 
 

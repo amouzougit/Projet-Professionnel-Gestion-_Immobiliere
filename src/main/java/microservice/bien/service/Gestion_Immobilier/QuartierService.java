@@ -8,7 +8,6 @@ import java.util.List;
 @Service("quartierService")
 public interface QuartierService {
 
-
     public List<Quartier> getAll();
 
     public Quartier getById(Integer id);

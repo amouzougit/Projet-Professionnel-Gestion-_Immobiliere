@@ -11,7 +11,7 @@ import java.util.List;
 @Service("savService")
 public class SAVServiceImpl implements SAVService {
     @Autowired
-    @Qualifier(value="savService")
+    //@Qualifier(value="savService")
     private SAVDao savDao;
 
 

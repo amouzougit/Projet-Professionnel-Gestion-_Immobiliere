@@ -3,11 +3,15 @@ package microservice.bien.serviceImpl.Gestion_Immobilier;
 import microservice.bien.dao.Gestion_Immobilier.BienDao;
 import microservice.bien.model.Gestion_Immobilier.Bien;
 import microservice.bien.service.Gestion_Immobilier.BienService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service("bienService")
 public class BienServiceImpl implements BienService {
+	
+	@Autowired
 	private BienDao bienDao;
 
 

@@ -1,5 +1,4 @@
 package microservice.bien.serviceImpl.Gestion_Users;
-
 import microservice.bien.dao.Gestion_Users.Agent_ImmobiliereDao;
 import microservice.bien.model.Gestion_Users.Agent_Immobiliere;
 import microservice.bien.service.Gestion_Users.Agent_ImmobiliereService;
@@ -8,11 +7,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service()
+@Service("agent_immobiliereService")
 public class Agent_ImmobiliereServiceImpl implements Agent_ImmobiliereService {
 
     @Autowired
-    @Qualifier(value ="agent_immobiliereDao")
+    //@Qualifier(value ="agent_immobiliereDao")
     private Agent_ImmobiliereDao agent_immobiliereDao;
 
     @Override

@@ -8,17 +8,17 @@ import java.util.List;
 @Service("administrateurService")
 public interface AdministrateurService {
 
-
     public List<Administrateur> getAll();
 
     public  Administrateur getById(Integer id);
 
     public  Administrateur save( Administrateur administrateur);
 
-    public List< Administrateur> saveAll(List< Administrateur> administrateurs);
+    public List< Administrateur> saveAll(List<Administrateur> administrateurs);
 
     public void delete( Administrateur administrateur);
 
     public void deleteAll();
+
 
 }

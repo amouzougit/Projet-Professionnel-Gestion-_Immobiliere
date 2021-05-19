@@ -11,7 +11,7 @@ import java.util.List;
 @Service("document_transactionService")
 public class Document_TransactionServiceImpl implements Document_TransactionService {
 	@Autowired
-	@Qualifier(value="document_transactionDao")
+	//@Qualifier(value="document_transactionDao")
 	private Document_TransactionDao document_TransactionDao;
 
 

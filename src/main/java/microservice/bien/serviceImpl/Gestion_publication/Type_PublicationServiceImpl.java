@@ -12,7 +12,7 @@ import java.util.List;
 public class Type_PublicationServiceImpl implements Type_PublicationService {
 
 	@Autowired
-	@Qualifier(value ="type_publicationDao")
+	//@Qualifier(value ="type_publicationDao")
 	private Type_PublicationDao type_publicationDao;
 
 	@Override

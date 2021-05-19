@@ -12,7 +12,7 @@ import java.util.List;
 public class OperationServiceImpl implements OperationService {
 
 	@Autowired
-	@Qualifier(value ="operationDao")
+	//@Qualifier(value ="operationDao")
 	private OperationDao operationDao;
 
 	@Override

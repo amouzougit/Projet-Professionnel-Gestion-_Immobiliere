@@ -12,7 +12,7 @@ import java.util.List;
 @Service("caracteristique_bienService")
 public class Caracteristique_BienServiceImpl  implements Caracteristique_BienService {
 @Autowired
-@Qualifier(value="caracteristique_bienDao")
+//@Qualifier(value="caracteristique_bienDao")
 	private Caracteristique_BienDao caracteristique_bienDao;
 
 	public List<Caracteristique_Bien> getAll() {

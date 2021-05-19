@@ -12,7 +12,7 @@ import java.util.List;
 public class PlainteServiceImpl implements PlainteService {
 
     @Autowired
-    @Qualifier(value="plainteDao")
+    //@Qualifier(value="plainteDao")
     private PlainteDao plainteDao;
 
     @Override

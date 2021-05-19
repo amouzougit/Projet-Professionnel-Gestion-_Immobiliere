@@ -5,7 +5,7 @@ import microservice.bien.model.Gestion_Users.Client;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service()
+@Service("clientService")
 public interface ClientService {
 
     public List<Client> getAll();

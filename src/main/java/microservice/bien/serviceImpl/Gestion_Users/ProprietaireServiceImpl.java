@@ -12,7 +12,7 @@ import java.util.List;
 public class ProprietaireServiceImpl implements ProprietaireService {
 
     @Autowired
-    @Qualifier("proprietaireDao")
+    //@Qualifier("proprietaireDao")
     private ProprietaireDao propritaireDao;
 
 

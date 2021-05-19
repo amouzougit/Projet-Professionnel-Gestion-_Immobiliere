@@ -1,5 +1,4 @@
 package microservice.bien.serviceImpl.Gestion_Users;
-
 import microservice.bien.dao.Gestion_Users.AgenceImmobiliereDao;
 import microservice.bien.model.Gestion_Users.AgenceImmobiliere;
 import microservice.bien.service.Gestion_Users.AgenceImmobiliereService;
@@ -11,7 +10,7 @@ import java.util.List;
 @Service("ageneImmobiliereService")
 public class AgenceImmobiliereServiceImpl implements AgenceImmobiliereService {
 		@Autowired
-		@Qualifier(value="aagence_ImmobiliereDao")
+		//@Qualifier(value="aagence_ImmobiliereDao")
 		private AgenceImmobiliereDao agenceImmobiliereDao;
 
 	@Override

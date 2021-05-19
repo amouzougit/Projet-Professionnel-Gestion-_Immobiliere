@@ -66,4 +66,22 @@ public class Ville extends BaseEntity {
     public void setCode(String code) {
         this.code = code;
     }
+
+	public List<Quartier> getQuartier() {
+		return quartier;
+	}
+
+	public void setQuartier(List<Quartier> quartier) {
+		this.quartier = quartier;
+	}
+
+	public Pays getPays() {
+		return pays;
+	}
+
+	public void setPays(Pays pays) {
+		this.pays = pays;
+	}
+    
+    
 }

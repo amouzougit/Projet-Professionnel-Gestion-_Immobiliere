@@ -12,7 +12,7 @@ public interface PaysService {
 
     public Pays getById(Integer id);
 
-    public Pays save(Pays machine);
+    public Pays save(Pays pays);
 
     public List<Pays> saveAll(List<Pays> pays);
 

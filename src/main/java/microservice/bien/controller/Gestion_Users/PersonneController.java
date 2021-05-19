@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/service/personne")
 public class PersonneController {
-
+	
 	@Autowired
-	@Qualifier(value = "personneService")
+	//@Qualifier(value = "personneService")
 	private PersonneService personneService;
 
 	@RequestMapping(value = "/save", method= RequestMethod.POST,headers = "accept = application/json")
@@ -29,7 +29,7 @@ public class PersonneController {
 		return personne;
 
 	}
-
+	
 	@RequestMapping(value = "saveAll",method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody public List<Personne> saveAll(@RequestBody List<Personne> personnes){
 		try{

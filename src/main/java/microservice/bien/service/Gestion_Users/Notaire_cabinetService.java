@@ -1,9 +1,10 @@
 package microservice.bien.service.Gestion_Users;
 
 import microservice.bien.model.Gestion_Users.Notaire_cabinet;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service("notaire_cabinetService")
 public interface Notaire_cabinetService {
 
 

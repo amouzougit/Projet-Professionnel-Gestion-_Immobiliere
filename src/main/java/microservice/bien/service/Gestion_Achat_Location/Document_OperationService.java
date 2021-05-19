@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("document_operationService")
+
 public interface Document_OperationService {
 
     public List<Document_Operation> getAll();

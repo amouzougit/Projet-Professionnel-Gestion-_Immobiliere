@@ -11,6 +11,7 @@ public class Document_Transaction extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_document_transaction")
     private Integer id_document_transaction;
+    
     @Column(name = "code", nullable = false, unique = true)
     private String code;
 
@@ -20,10 +21,10 @@ public class Document_Transaction extends BaseEntity {
     @Column(name = "status", nullable = false)
     private Boolean status;
 
-
-
+    /*
     @OneToMany(mappedBy="document_transaction", fetch=FetchType.EAGER)
     private List<Transaction> transactions;
+    */
 
 
     public Document_Transaction(){
