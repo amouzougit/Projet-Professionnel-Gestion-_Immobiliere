@@ -10,6 +10,7 @@ public class Caracteristique_Bien extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id_caracteristique_bien")
     private Integer id_caracteristique_bien;
+    
     @Column(name = "nbre_chambre", nullable = false)
     private Integer nbre_chambre;
 
@@ -72,4 +73,5 @@ public class Caracteristique_Bien extends BaseEntity {
     public void setBalcon(String balcon) {
         this.balcon = balcon;
     }
+    
 }

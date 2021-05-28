@@ -61,7 +61,9 @@ public class Mode_Transaction extends BaseEntity {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.libelle = status;
-    }
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+	
+    
 }

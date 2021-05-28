@@ -25,8 +25,9 @@ public class Publication extends BaseEntity {
     private Type_Publication type_publication;
 
 
-    @OneToMany(mappedBy="publication", fetch=FetchType.EAGER)
+    /*@OneToMany(mappedBy="publication", fetch=FetchType.EAGER)
     private List<Operation> operations;
+    */
 
     @Column(name = "date_publication", nullable = false)
     private Date date_publication;
@@ -96,5 +97,22 @@ public class Publication extends BaseEntity {
     public void setMontant(Double montant) {
         this.montant = montant;
     }
+
+	public Bien getBien() {
+		return bien;
+	}
+
+	public void setBien(Bien bien) {
+		this.bien = bien;
+	}
+
+	public Type_Publication getType_publication() {
+		return type_publication;
+	}
+
+	public void setType_publication(Type_Publication type_publication) {
+		this.type_publication = type_publication;
+	}
+    
 }
 

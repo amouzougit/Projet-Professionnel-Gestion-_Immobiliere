@@ -70,4 +70,5 @@ public class Document_Transaction extends BaseEntity {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+    
 }

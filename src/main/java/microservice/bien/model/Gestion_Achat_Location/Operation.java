@@ -85,4 +85,13 @@ public class Operation extends BaseEntity {
         this.libelle = libelle;
     }
 
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
+	}
+    
+
 }

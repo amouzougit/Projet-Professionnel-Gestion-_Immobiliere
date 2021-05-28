@@ -22,9 +22,11 @@ public class Agent_Immobilier extends Personne{
        this.id = id;
 
     }
+    
 
-    @OneToMany(mappedBy="agent_immobilier", fetch= FetchType.EAGER)
+    /*@OneToMany(mappedBy="agent_immobilier", fetch= FetchType.EAGER)
     private List<Bien> biens;
+    */
 
     public Agent_Immobilier(String nom, String prenom, String adress, String email, String telephone, String password, Integer id, String username) {
         super(nom, prenom, adress, email, telephone,username,password);

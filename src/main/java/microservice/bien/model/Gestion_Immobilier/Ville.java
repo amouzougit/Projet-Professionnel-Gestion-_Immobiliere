@@ -15,16 +15,15 @@ public class Ville extends BaseEntity {
     private Integer id_ville;
 
 
-    @OneToMany(mappedBy="ville", fetch=FetchType.EAGER)
-    private List<Quartier> quartier;
+   // @OneToMany(mappedBy="ville", fetch=FetchType.EAGER)
+   // private List<Quartier> quartier;
 
 
     @ManyToOne
     @JoinColumn(name="id_pays", nullable = false)
     private Pays pays;
 
-    @OneToMany(mappedBy="ville", fetch=FetchType.EAGER)
-    private List<Quartier> quartiers;
+  
 
     @Column(name = "libelle", nullable = false)
     private String libelle;
@@ -38,7 +37,7 @@ public class Ville extends BaseEntity {
 
     public Ville(Integer id_ville, List<Quartier> quartier, String libelle, String code, Pays pays) {
         this.id_ville = id_ville;
-        this.quartier = quartier;
+        //this.quartier = quartier;
         this.libelle = libelle;
         this.code = code;
         this.pays = pays;
@@ -67,13 +66,14 @@ public class Ville extends BaseEntity {
         this.code = code;
     }
 
-	public List<Quartier> getQuartier() {
+	/*public List<Quartier> getQuartier() {
 		return quartier;
 	}
 
 	public void setQuartier(List<Quartier> quartier) {
 		this.quartier = quartier;
 	}
+	*/
 
 	public Pays getPays() {
 		return pays;

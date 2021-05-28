@@ -87,4 +87,21 @@ public class Transaction extends BaseEntity {
         this.date = date;
     }
 
+	public Operation getOperation() {
+		return operation;
+	}
+
+	public void setOperation(Operation operation) {
+		this.operation = operation;
+	}
+
+	public Document_Transaction getDocument_transaction() {
+		return document_transaction;
+	}
+
+	public void setDocument_transaction(Document_Transaction document_transaction) {
+		this.document_transaction = document_transaction;
+	}
+    
+
 }

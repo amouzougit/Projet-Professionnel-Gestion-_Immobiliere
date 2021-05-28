@@ -18,8 +18,9 @@ public class Type_Publication extends BaseEntity {
     @Column(name = "libelle", nullable = false)
     private String libelle;
 
-    @OneToMany(mappedBy="type_publication", fetch=FetchType.EAGER)
+   /* @OneToMany(mappedBy="type_publication", fetch=FetchType.EAGER)
     private List<Publication> publications;
+    */
 
 
     public Type_Publication()
@@ -55,4 +56,15 @@ public class Type_Publication extends BaseEntity {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+
+	/*public List<Publication> getPublications() {
+		return publications;
+	}
+
+	public void setPublications(List<Publication> publications) {
+		this.publications = publications;
+	}
+	*/
+    
+    
 }

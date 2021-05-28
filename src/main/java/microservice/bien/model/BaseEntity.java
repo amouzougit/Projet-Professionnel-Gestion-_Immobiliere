@@ -6,10 +6,10 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseEntity {
 	@Column(name = "createdBy", nullable = false)
-	protected Long createdBy;
+	protected Long createdBy = 1L;
 
 	@Column(name = "createdDate", nullable = false)
-	protected Date createdDate;
+	protected Date createdDate = new Date();
 
 	@Column(name = "lastModifiedBy", nullable = true)
 	protected Long lastModifiedBy;
@@ -59,6 +59,7 @@ public class BaseEntity {
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
+	
 
 	@Override
 	public String toString() {

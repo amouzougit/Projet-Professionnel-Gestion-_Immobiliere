@@ -55,4 +55,13 @@ public class Document_Operation extends BaseEntity {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+
+	public Operation getOperation() {
+		return operation;
+	}
+
+	public void setOperation(Operation operation) {
+		this.operation = operation;
+	}
+    
 }

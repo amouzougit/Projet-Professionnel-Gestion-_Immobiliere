@@ -19,17 +19,15 @@ public class Quartier extends BaseEntity {
     private Ville ville;
 
 
-    @OneToMany(mappedBy="quartier", fetch=FetchType.EAGER)
+  /* @OneToMany(mappedBy="quartier", fetch=FetchType.EAGER)
     private List<Bien> biens;
+    */
     
     @Column(name = "code", nullable = false)
     private String code;
 
     @Column(name = "libelle", nullable = false)
     private String libelle;
-
-
-
 
     public Quartier(){
 
@@ -65,4 +63,15 @@ public class Quartier extends BaseEntity {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+
+	public Ville getVille() {
+		return ville;
+	}
+
+	public void setVille(Ville ville) {
+		this.ville = ville;
+	}
+	
+    
+    
 }

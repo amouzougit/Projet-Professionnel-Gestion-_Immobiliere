@@ -21,9 +21,15 @@ public class QuartierController {
 	 private QuartierService quartierService;
 	  
 	 @RequestMapping(value ="/save", method = RequestMethod.POST, headers = "Accept=application/json")
-	 @ResponseBody public Quartier save(@RequestBody Quartier quartier) { try{
-	 quartier = this.quartierService.save(quartier); }catch (Exception ex){
-	 System.out.println(ex.getMessage()); } return quartier; }
+	 @ResponseBody 
+	 public Quartier save(@RequestBody Quartier quartier) { 
+		 try{
+			 quartier = this.quartierService.save(quartier); 
+		 }catch (Exception ex){
+			 System.out.println(ex.getMessage()); 
+		 } 
+		 return quartier; 
+	}
 	  
 	 @RequestMapping(value = "/saveAll", method = RequestMethod.POST, headers =
 	 "Accept=application/json")

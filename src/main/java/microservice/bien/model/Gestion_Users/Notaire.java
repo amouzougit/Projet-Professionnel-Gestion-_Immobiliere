@@ -30,30 +30,30 @@ public class Notaire extends Personne{
     public Notaire(){
     }
 
-    public Notaire(String nom, String prenom, String adress, String email, String telephone, String password, Integer id, String acte_notarie, String nom_cabinet,String carte_identite,String username) {
+    public Notaire(String nom, String prenom, String adress, String email, String telephone, String password, Integer id, String nom_cabinet,String carte_identite,String username) {
         super(nom, prenom, adress, email, telephone,username,password);
         this.id = id;
         this.nom_cabinet = nom_cabinet;
         this.carte_identite =carte_identite;
     }
-    public String getcarte_identite() {
-        return carte_identite;
-    }
+    
+    
 
-    public void setcarte_identite(String carte_identite) {
-        this.carte_identite = carte_identite;
-    }
+	public String getNom_cabinet() {
+		return nom_cabinet;
+	}
 
-   public void setId(Integer id) {
-     this.id = id;
-   }
-   
+	public void setNom_cabinet(String nom_cabinet) {
+		this.nom_cabinet = nom_cabinet;
+	}
 
-    public String getNom_cabinet() {
-        return nom_cabinet;
-    }
+	public String getCarte_identite() {
+		return carte_identite;
+	}
 
-    public void setNom_cabinet(String nom_cabinet) {
-        this.nom_cabinet = nom_cabinet;
-    }
+	public void setCarte_identite(String carte_identite) {
+		this.carte_identite = carte_identite;
+	}
+    
+    
 }

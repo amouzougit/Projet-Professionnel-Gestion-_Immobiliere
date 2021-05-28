@@ -68,4 +68,14 @@ public class Document_Bien extends BaseEntity {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+	public Bien getBien() {
+		return bien;
+	}
+
+	public void setBien(Bien bien) {
+		this.bien = bien;
+	}
+	
+    
 }

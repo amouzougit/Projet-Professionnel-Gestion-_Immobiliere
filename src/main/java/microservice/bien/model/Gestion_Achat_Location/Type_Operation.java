@@ -51,4 +51,5 @@ public class Type_Operation extends BaseEntity {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+    
 }

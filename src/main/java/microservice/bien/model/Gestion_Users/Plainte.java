@@ -114,4 +114,5 @@ public class Plainte  extends BaseEntity {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+    
 }

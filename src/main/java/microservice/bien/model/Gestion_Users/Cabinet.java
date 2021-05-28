@@ -70,4 +70,5 @@ public class Cabinet  extends BaseEntity {
     public void setLatitude(Float latitude) {
         this.latitude = latitude;
     }
+    
 }

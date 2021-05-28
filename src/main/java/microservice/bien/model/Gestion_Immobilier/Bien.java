@@ -14,17 +14,19 @@ public class Bien extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_bien",nullable=false)
     private Long id_bien;
+    
     @OneToOne
     @JoinColumn(name = "type_bien_fk")
     private Type_Bien type_bien;
+    
     @ManyToOne
     @JoinColumn(name ="id_quartier",nullable = false)
     private Quartier quartier;
 
-
     @ManyToOne
     @JoinColumn(name ="id_demarcheur",nullable = false)
     private Demarcheur demarcheur;
+    
 
     @ManyToOne
     @JoinColumn(name ="id_agent_immobilier",nullable = false)
@@ -163,8 +165,50 @@ public class Bien extends BaseEntity {
     public void setCertificat(String certificat) {
         this.certificat = certificat;
     }
+    
 
-    @Override
+    public Type_Bien getType_bien() {
+		return type_bien;
+	}
+
+	public void setType_bien(Type_Bien type_bien) {
+		this.type_bien = type_bien;
+	}
+
+	public Quartier getQuartier() {
+		return quartier;
+	}
+
+	public void setQuartier(Quartier quartier) {
+		this.quartier = quartier;
+	}
+
+	public Demarcheur getDemarcheur() {
+		return demarcheur;
+	}
+
+	public void setDemarcheur(Demarcheur demarcheur) {
+		this.demarcheur = demarcheur;
+	}
+	
+
+	public Agent_Immobilier getAgent_immobilier() {
+		return agent_immobilier;
+	}
+
+	public void setAgent_immobilier(Agent_Immobilier agent_immobilier) {
+		this.agent_immobilier = agent_immobilier;
+	}
+
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
+	@Override
     public String toString() {
         return "Bien{" +
                 "id_bien=" + id_bien +

@@ -12,14 +12,25 @@ public class Demarcheur  extends Personne{
     @Column(name = "id",nullable = true)
     public Integer id;
 
-    @OneToMany(mappedBy="demarcheur", fetch= FetchType.EAGER)
+   /* @OneToMany(mappedBy="demarcheur", fetch= FetchType.EAGER)
     private List<Bien> biens;
+    */
+    
 
     public Demarcheur()
     {
     }
     public Demarcheur(String nom, String prenom, String adress, String email, String telephone, String password, Integer id,String username) {
         super(nom, prenom, adress, email, telephone,password,username);
-        this.id = id;
+       // this.id = id;
     }
+	/*public List<Bien> getBiens() {
+		return biens;
+	}
+	public void setBiens(List<Bien> biens) {
+		this.biens = biens;
+	}
+	*/
+	
+    
 }

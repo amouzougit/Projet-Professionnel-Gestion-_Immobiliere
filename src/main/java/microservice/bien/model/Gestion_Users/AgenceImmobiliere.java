@@ -52,4 +52,5 @@ public class AgenceImmobiliere extends BaseEntity {
     public void setAdress(String adress) {
         this.adress = adress;
     }
+    
 }
