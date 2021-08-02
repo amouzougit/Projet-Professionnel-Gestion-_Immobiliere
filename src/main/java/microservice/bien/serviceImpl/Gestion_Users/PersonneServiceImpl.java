@@ -47,4 +47,9 @@ public class PersonneServiceImpl implements PersonneService {
         this.personneDao.deleteAll();
 
     }
+    
+    public Personne findByUsernameAndPassword(String username, String password) {
+ 	   
+ 	   return this.personneDao.findByUsernameAndPassword(username, password);
+    }
 }

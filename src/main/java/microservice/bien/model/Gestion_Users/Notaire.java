@@ -12,9 +12,9 @@ import java.util.Set;
 @Entity
 @Table(name ="notaire")
 public class Notaire extends Personne{
-    @Id
+    //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    //@Column(name = "id")
    private Integer id;
 
     @Column(name = "nom_cabinet", nullable = false)
@@ -22,16 +22,12 @@ public class Notaire extends Personne{
 
     @Column(name = "carte_identite", nullable = false)
     private String carte_identite;
-    
-
-   // @ManyToMany(mappedBy = "cabinet")
-    //private Set<Cabinet> cabinets = new HashSet<>();
 
     public Notaire(){
     }
 
-    public Notaire(String nom, String prenom, String adress, String email, String telephone, String password, Integer id, String nom_cabinet,String carte_identite,String username) {
-        super(nom, prenom, adress, email, telephone,username,password);
+    public Notaire(String nom, String prenom, String adress, String email, String telephone, String password, Integer id, String nom_cabinet,String carte_identite,String username, Role role) {
+        super(nom, prenom, adress, email, telephone,username,password,role);
         this.id = id;
         this.nom_cabinet = nom_cabinet;
         this.carte_identite =carte_identite;

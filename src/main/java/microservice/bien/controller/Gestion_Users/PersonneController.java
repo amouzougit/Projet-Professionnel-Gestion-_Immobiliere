@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/service/personne")
 public class PersonneController {
@@ -76,6 +76,16 @@ public class PersonneController {
 			System.out.println(ex.getMessage());
 		}
 		return persons;
+	}
+	
+	@RequestMapping(value="/findByUsernameAndPassword", method = RequestMethod.POST , headers = "Accept=application/json")
+	@ResponseBody public Personne findByUsernameAndPassword(@RequestBody Personne personne) {
+		
+		personne =  this.personneService.findByUsernameAndPassword(personne.getUsername(),personne.getPassword());
+		
+		return personne == null ? new Personne() : personne;
+		
+		
 	}
 
 

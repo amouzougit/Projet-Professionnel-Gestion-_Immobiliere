@@ -1,13 +1,12 @@
 package microservice.bien.model.Gestion_Users;
 
 import microservice.bien.model.BaseEntity;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name= "personne")
 @Inheritance(strategy=InheritanceType.JOINED)
-public abstract class Personne extends BaseEntity {
+public class Personne extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id")
@@ -35,12 +34,17 @@ public abstract class Personne extends BaseEntity {
 
     @Column(name = "password", nullable = false)
     protected String password;
+    
+    
+    @ManyToOne
+    @JoinColumn(name ="id_role",nullable = false)
+    private Role role;
 
     public Personne(){
 
     }
 
-    public Personne(String nom, String prenom, String adress, String email, String telephone,String username,String password) {
+    public Personne(String nom, String prenom, String adress, String email, String telephone,String username,String password,Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.adress = adress;
@@ -48,8 +52,7 @@ public abstract class Personne extends BaseEntity {
         this.telephone = telephone;
         this.password = password;
         this.username = username;
-
-
+        this.role = role;
     }
 
     public Long getId() {
@@ -115,8 +118,16 @@ public abstract class Personne extends BaseEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public Role getRole() {
+		return role;
+	}
 
-    @Override
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	@Override
     public String toString() {
         return "Personne{" +
                 "id=" + id +

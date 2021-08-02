@@ -13,16 +13,10 @@ public class Quartier extends BaseEntity {
     @Column(name="id_quartier")
     private Long id_quartier;
 
-
     @ManyToOne
     @JoinColumn(name ="id_ville",nullable = false)
     private Ville ville;
 
-
-  /* @OneToMany(mappedBy="quartier", fetch=FetchType.EAGER)
-    private List<Bien> biens;
-    */
-    
     @Column(name = "code", nullable = false)
     private String code;
 

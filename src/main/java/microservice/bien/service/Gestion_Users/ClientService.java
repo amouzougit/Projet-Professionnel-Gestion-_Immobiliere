@@ -1,6 +1,5 @@
 package microservice.bien.service.Gestion_Users;
 
-import microservice.bien.model.Gestion_Users.Cabinet;
 import microservice.bien.model.Gestion_Users.Client;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +11,7 @@ public interface ClientService {
 
     public Client getById(Integer id);
 
-    public Client save(Client cabinet);
+    public Client save(Client client);
 
     public List<Client> saveAll(List<Client> clients);
 

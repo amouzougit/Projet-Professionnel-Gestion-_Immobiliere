@@ -1,6 +1,5 @@
 package microservice.bien.service.Gestion_Users;
 
-import microservice.bien.model.Gestion_Users.AgenceImmobiliere;
 import microservice.bien.model.Gestion_Users.Cabinet;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +19,8 @@ public interface CabinetService {
     public void delete(Cabinet cabinet);
 
     public void deleteAll();
+    
+     
 
 
 }

@@ -8,29 +8,18 @@ import java.util.List;
 @Entity
 @Table(name ="demarcheur")
 public class Demarcheur  extends Personne{
-   @Id
-    @Column(name = "id",nullable = true)
+	//@Id
+    //@Column(name = "id",nullable = true)
     public Integer id;
-
-   /* @OneToMany(mappedBy="demarcheur", fetch= FetchType.EAGER)
-    private List<Bien> biens;
-    */
-    
 
     public Demarcheur()
     {
     }
-    public Demarcheur(String nom, String prenom, String adress, String email, String telephone, String password, Integer id,String username) {
-        super(nom, prenom, adress, email, telephone,password,username);
-       // this.id = id;
+    public Demarcheur(String nom, String prenom, String adress, String email, String telephone, String password, Integer id,String username, Role role) {
+        super(nom, prenom, adress, email, telephone,password,username, role);
+        this.id = id;
     }
-	/*public List<Bien> getBiens() {
-		return biens;
-	}
-	public void setBiens(List<Bien> biens) {
-		this.biens = biens;
-	}
-	*/
 	
-    
+	
+   
 }

@@ -9,7 +9,7 @@ import java.util.Date;
 @Table(name ="notaire_cabinet")
 public class Notaire_cabinet extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="id")
     private Integer id;
     

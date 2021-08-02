@@ -19,6 +19,8 @@ public interface PersonneService {
     public void delete(Personne personnes);
 
     public void deleteAll();
+    
+    public Personne findByUsernameAndPassword(String username, String password);
 
 
 }

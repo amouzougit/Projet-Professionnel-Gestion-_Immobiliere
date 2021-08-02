@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RequestMapping("/service/pays")
 @RestController
 public class PaysController {

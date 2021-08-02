@@ -70,7 +70,7 @@ public class Bien extends BaseEntity {
 
     }
 
-    public Bien(Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude) {
+    public Bien(Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude, Agent_Immobilier agent_immobilier,Type_Bien type_bien,Demarcheur demarcheur,Proprietaire proprietaire,Quartier quartier) {
         this.id_bien = id_bien;
         this.code = code;
         this.libelle = libelle;
@@ -81,6 +81,12 @@ public class Bien extends BaseEntity {
         this.longitude = longitude;
         this.statuts = statuts;
         this.certificat = certificat;
+        this.agent_immobilier = agent_immobilier;
+        this. type_bien = type_bien;
+        this.demarcheur = demarcheur;
+        this.proprietaire = proprietaire;
+        this.quartier = quartier;
+
 
     }
 
@@ -131,8 +137,6 @@ public class Bien extends BaseEntity {
     public void setDisponibilite(Boolean disponibilite) {
         this.disponibilite = disponibilite;
     }
-
-
 
     public int getLatitude() {
         return latitude;

@@ -1,38 +1,41 @@
 package microservice.bien.model.Gestion_Users;
 
-import microservice.bien.model.Gestion_Immobilier.Bien;
-
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
 @Table(name="agent_Immobilier")
 public class Agent_Immobilier extends Personne{
-    @Id
+    //@Id
    // @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = true)
-    private Integer id;
+    //@Column(name = "id_agent_immobilier",nullable = true)
+    private Integer id_agent_immobilier;
 
     public Agent_Immobilier() {
+    	
+    }
+ 
+    public Agent_Immobilier(String nom, String prenom, String adress, String email, String telephone, String password, Integer id_agent_immobilier, String username, Role role) {
+        super(nom, prenom, adress, email, telephone,username,password,role);
+        this.id_agent_immobilier = id_agent_immobilier;
 
     }
 
-    public Agent_Immobilier(Integer id) {
-       this.id = id;
+	public Integer getId_agent_immobilier() {
+		return id_agent_immobilier;
+	}
 
-    }
+	public void setId_agent_immobilier(Integer id_agent_immobilier) {
+		this.id_agent_immobilier = id_agent_immobilier;
+	}
+	
+	
+	
+	
     
-
-    /*@OneToMany(mappedBy="agent_immobilier", fetch= FetchType.EAGER)
-    private List<Bien> biens;
-    */
-
-    public Agent_Immobilier(String nom, String prenom, String adress, String email, String telephone, String password, Integer id, String username) {
-        super(nom, prenom, adress, email, telephone,username,password);
-        this.id = id;
-
-    }
+    
+    
+    
 
     
  
