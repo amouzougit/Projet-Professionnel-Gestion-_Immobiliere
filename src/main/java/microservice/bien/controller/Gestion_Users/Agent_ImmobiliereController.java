@@ -2,6 +2,7 @@ package microservice.bien.controller.Gestion_Users;
 
 
 import microservice.bien.model.Gestion_Users.Agent_Immobiliere;
+import microservice.bien.model.Gestion_Users.Client;
 import microservice.bien.service.Gestion_Users.Agent_ImmobiliereService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -86,5 +87,11 @@ public class Agent_ImmobiliereController {
 
 		return result;
 	}
+	
+    @PutMapping("/{id}/update")
+    public Agent_Immobiliere update(@RequestBody Agent_Immobiliere agent_immobiliereObj) {
+    	agent_immobiliereService.save(agent_immobiliereObj);
+    	return agent_immobiliereObj;
+ }
 
 }

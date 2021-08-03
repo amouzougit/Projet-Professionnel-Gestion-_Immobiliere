@@ -1,6 +1,9 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
+import microservice.bien.model.Gestion_Achat_Location.Type_Operation;
 import microservice.bien.model.Gestion_Immobilier.Bien;
+import microservice.bien.model.Gestion_Immobilier.Caracteristique_Bien;
+import microservice.bien.model.Gestion_Users.Role;
 import microservice.bien.service.Gestion_Immobilier.BienService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,13 +19,13 @@ public class BienController {
 
     @Autowired
     //@Qualifier(value ="bienService")
-    private BienService binService;
+    private BienService bienService;
 
     @RequestMapping(value ="/save", method = RequestMethod.POST,headers = "Accept=application/json")
     @ResponseBody public Bien save(@RequestBody Bien bien)
     {
         try{
-            bien = this.binService.createBien(bien);
+            bien = this.bienService.createBien(bien);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -32,7 +35,7 @@ public class BienController {
     @RequestMapping(value = "/saveAll", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody public List< Bien> saveAll(@RequestBody List<Bien> biens) {
         try {
-            biens = this.binService.saveAll(biens);
+            biens = this.bienService.saveAll(biens);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -48,7 +51,7 @@ public class BienController {
         List< Bien> lesbiens = new ArrayList<>();
 
         try {
-            lesbiens = this.binService.listBiens();
+            lesbiens = this.bienService.listBiens();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -63,7 +66,7 @@ public class BienController {
         Boolean result = false;
 
         try {
-            this.binService.delete(bien);
+            this.bienService.delete(bien);
             result = true;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -78,7 +81,7 @@ public class BienController {
         Boolean result = false;
 
         try {
-            this.binService.deleteAll();
+            this.bienService.deleteAll();
             result = true;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -86,5 +89,13 @@ public class BienController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Bien update(@RequestBody Bien bienObj) {
+    	bienService.save(bienObj);
+    	return bienObj;
+    }
+    
+   
 
 }

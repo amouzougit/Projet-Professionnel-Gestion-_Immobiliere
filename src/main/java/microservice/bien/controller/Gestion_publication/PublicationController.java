@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_publication;
 
 
+import microservice.bien.model.Gestion_Users.Agent_Immobiliere;
 import microservice.bien.model.Gestion_publication.Publication;
 import microservice.bien.service.Gestion_publication.PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,4 +89,10 @@ public class PublicationController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Publication update(@RequestBody Publication publicationObj) {
+    	publicationService.save(publicationObj);
+    	return publicationObj;
+ }
 }

@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Users;
 
 import microservice.bien.model.Gestion_Users.Proprietaire;
+import microservice.bien.model.Gestion_Users.SAV;
 import microservice.bien.service.Gestion_Users.ProprietaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -86,5 +87,14 @@ public class ProprietaireController {
 
 		return result;
 	}
+	
+	 @PutMapping("/{id}/update")
+	    public Proprietaire update(@RequestBody Proprietaire proprietaireObj) {
+		 proprietaireService.save(proprietaireObj);
+	    	return proprietaireObj;
+	 }
+	
+
+	    	
 
 }

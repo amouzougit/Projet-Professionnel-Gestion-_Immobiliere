@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Users;
 
 import microservice.bien.model.Gestion_Users.Personne;
+import microservice.bien.model.Gestion_Users.Plainte;
 import microservice.bien.service.Gestion_Users.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -87,6 +88,12 @@ public class PersonneController {
 		
 		
 	}
+	
+	@PutMapping("/{id}/update")
+    public Personne update(@RequestBody Personne personneObj) {
+		personneService.save(personneObj);
+    	return personneObj;
+ }
 
 
 

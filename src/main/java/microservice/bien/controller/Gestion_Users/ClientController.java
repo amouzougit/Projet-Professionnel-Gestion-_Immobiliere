@@ -2,6 +2,7 @@ package microservice.bien.controller.Gestion_Users;
 
 
 import microservice.bien.model.Gestion_Users.Client;
+import microservice.bien.model.Gestion_Users.Demarcheur;
 import microservice.bien.service.Gestion_Users.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -86,4 +87,10 @@ public class ClientController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Client update(@RequestBody Client clientObj) {
+    	clientService.save(clientObj);
+    	return clientObj;
+ }
 }

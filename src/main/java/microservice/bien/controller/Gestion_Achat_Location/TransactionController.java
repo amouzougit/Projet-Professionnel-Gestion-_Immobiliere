@@ -5,7 +5,6 @@ package microservice.bien.controller.Gestion_Achat_Location;
 import microservice.bien.model.Gestion_Achat_Location.Transaction;
 import microservice.bien.service.Gestion_Achat_Location.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -87,6 +86,13 @@ public class TransactionController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Transaction update(@RequestBody Transaction transactiontObj) {
+    	transactionService.save(transactiontObj);
+    	return transactiontObj;
+    
+	}
 
 
 }

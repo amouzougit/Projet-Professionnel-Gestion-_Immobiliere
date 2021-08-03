@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Users;
 
 
+import microservice.bien.model.Gestion_Immobilier.Quartier;
 import microservice.bien.model.Gestion_Users.Cabinet;
 import microservice.bien.service.Gestion_Users.CabinetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,31 +89,19 @@ public class CabinetController {
 		return result;
 	}
 	
+	
+	
+	@PutMapping("/{id}/update")
+    public Cabinet update(@RequestBody Cabinet cabinetObj) {
+		cabinetService.save(cabinetObj);
+    	return cabinetObj;
+    }
+	
 
 	
-	//@RequestMapping(value ="/update", method = RequestMethod.PUT,headers = "Accept=application/json")
-	@PutMapping("/{id}/update")
-	@ResponseBody
-	public ResponseEntity save(
-			@PathVariable Integer id,
-			@RequestBody Cabinet cabinet)
-	{
-		try{
-			 Cabinet cabinetObj = this.cabinetService.getById(id);
-			 cabinetObj.setNom_cabinet(cabinet.getNom_cabinet());
-			 cabinetObj.setLongitude(cabinet.getLongitude());
-			 cabinetObj.setLatitude(cabinet.getLatitude());
-			 cabinetService.save(cabinetObj);
-			 
-			 return ResponseEntity.ok(cabinetObj);
-			
-		}catch (Exception ex){
-			System.out.println(ex.getMessage());
-			
-			return ResponseEntity.badRequest().body( new String("Ajoute du cabinet echouer"));
-		}
+	
 		
-	}
+	
 
 
 }

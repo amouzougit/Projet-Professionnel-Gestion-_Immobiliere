@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Users;
 
 import microservice.bien.model.Gestion_Users.Plainte;
+import microservice.bien.model.Gestion_Users.Proprietaire;
 import microservice.bien.service.Gestion_Users.PlainteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -85,5 +86,11 @@ public class PlainteController {
 
 		return result;
 	}
+	
+	@PutMapping("/{id}/update")
+    public Plainte update(@RequestBody Plainte planteObj) {
+		plainteService.save(planteObj);
+    	return planteObj;
+ }
 
 }

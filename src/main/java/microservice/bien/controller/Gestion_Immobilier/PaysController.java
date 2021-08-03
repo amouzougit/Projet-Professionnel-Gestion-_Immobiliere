@@ -86,4 +86,14 @@ public class PaysController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Pays update(@RequestBody Pays paysObj) {
+    	paysService.save(paysObj);
+    	return paysObj;
+    }
+    
+    
+    
+    
 }

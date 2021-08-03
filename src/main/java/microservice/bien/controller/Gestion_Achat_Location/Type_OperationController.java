@@ -1,11 +1,10 @@
 package microservice.bien.controller.Gestion_Achat_Location;
 
-import microservice.bien.model.Gestion_Achat_Location.Operation;
 import microservice.bien.model.Gestion_Achat_Location.Type_Operation;
-import microservice.bien.service.Gestion_Achat_Location.OperationService;
+
 import microservice.bien.service.Gestion_Achat_Location.Type_OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -88,4 +87,11 @@ public class Type_OperationController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Type_Operation update(@RequestBody Type_Operation type_operationObj) {
+    	type_operationService.save(type_operationObj);
+    	return type_operationObj;
+    
+	}
 }

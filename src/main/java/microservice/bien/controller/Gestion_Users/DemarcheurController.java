@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Users;
 
 import microservice.bien.model.Gestion_Users.Demarcheur;
+import microservice.bien.model.Gestion_Users.Notaire_cabinet;
 import microservice.bien.service.Gestion_Users.DemarcheurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -85,4 +86,10 @@ public class DemarcheurController {
 
         return result;
     }
+    
+	@PutMapping("/{id}/update")
+    public Demarcheur update(@RequestBody Demarcheur demarcheurObj) {
+		demarcheurService.save(demarcheurObj);
+    	return demarcheurObj;
+ }
 }

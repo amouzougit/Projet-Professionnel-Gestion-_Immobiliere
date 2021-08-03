@@ -2,6 +2,7 @@ package microservice.bien.controller.Gestion_Achat_Location;
 
 
 import microservice.bien.model.Gestion_Achat_Location.Mode_Transaction;
+import microservice.bien.model.Gestion_Immobilier.Pays;
 import microservice.bien.service.Gestion_Achat_Location.Mode_TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -86,5 +87,11 @@ public class Mode_TransactionController {
         }
 
         return result;
+    }
+    
+    @PutMapping("/{id}/update")
+    public Mode_Transaction update(@RequestBody Mode_Transaction mode_transactionObj) {
+    	mode_transactionService.save(mode_transactionObj);
+    	return mode_transactionObj;
     }
 }

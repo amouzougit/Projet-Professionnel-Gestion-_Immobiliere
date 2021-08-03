@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
 
+import microservice.bien.model.Gestion_Immobilier.Caracteristique_Bien;
 import microservice.bien.model.Gestion_Immobilier.Document_Bien;
 import microservice.bien.service.Gestion_Immobilier.Document_BienService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,4 +90,7 @@ public class Document_BienController {
 
         return result;
     }
+    
+    
+   
 }

@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
 
+import microservice.bien.model.Gestion_Immobilier.Pays;
 import microservice.bien.model.Gestion_Immobilier.Quartier;
 import microservice.bien.service.Gestion_Immobilier.QuartierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,16 @@ public class QuartierController {
 	 try { this.quartierService.deleteAll(); result = true; } catch (Exception ex)
 	 { System.out.println(ex.getMessage()); }
 	  
-	 return result; }
+	 return result;
+			 
+	 }
+	 
+	 
+	 @PutMapping("/{id}/update")
+	    public Quartier update(@RequestBody Quartier quartierObj) {
+	    	quartierService.save(quartierObj);
+	    	return quartierObj;
+	    }
+	 
 	 
 }

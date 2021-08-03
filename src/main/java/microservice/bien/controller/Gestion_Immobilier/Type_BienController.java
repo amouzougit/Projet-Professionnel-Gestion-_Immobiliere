@@ -1,5 +1,6 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
+import microservice.bien.model.Gestion_Immobilier.Quartier;
 import microservice.bien.model.Gestion_Immobilier.Type_Bien;
 import microservice.bien.service.Gestion_Immobilier.Type_BienService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,5 +86,11 @@ public class Type_BienController {
         }
 
         return result;
+    }
+    
+    @PutMapping("/{id}/update")
+    public Type_Bien update(@RequestBody Type_Bien type_bienObj) {
+    	type_bienService.save(type_bienObj);
+    	return type_bienObj;
     }
 }

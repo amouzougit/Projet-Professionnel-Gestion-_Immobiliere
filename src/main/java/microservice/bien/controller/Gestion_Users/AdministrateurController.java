@@ -2,6 +2,7 @@ package microservice.bien.controller.Gestion_Users;
 
 
 import microservice.bien.model.Gestion_Users.Administrateur;
+import microservice.bien.model.Gestion_Users.Agent_Immobiliere;
 import microservice.bien.service.Gestion_Users.AdministrateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -86,4 +87,11 @@ public class AdministrateurController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Administrateur update(@RequestBody Administrateur administrateurObj) {
+    	administrateurService.save(administrateurObj);
+    	return administrateurObj;
+ }
+
 }

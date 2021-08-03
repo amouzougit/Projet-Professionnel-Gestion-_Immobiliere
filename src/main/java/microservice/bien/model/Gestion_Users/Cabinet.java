@@ -21,13 +21,6 @@ public class Cabinet  extends BaseEntity {
     @Column(name = "latitude", nullable = false)
     private Float latitude;
 
-  /*  @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "notaire_cabinet",
-            joinColumns = @JoinColumn(name = "id_cabinet", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id_notaire", referencedColumnName = "id"))
-    private Set<Notaire> notaires;
-    */
-
     public Cabinet(Integer id_cabinet, String nom_cabinet, Float longitude, Float latitude) {
         this.id_cabinet = id_cabinet;
         this.nom_cabinet = nom_cabinet;

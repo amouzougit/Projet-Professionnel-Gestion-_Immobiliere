@@ -1,5 +1,6 @@
 package microservice.bien.controller.Gestion_Achat_Location;
 
+import microservice.bien.model.Gestion_Achat_Location.Document_Transaction;
 import microservice.bien.model.Gestion_Achat_Location.Operation;
 import microservice.bien.service.Gestion_Achat_Location.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,4 +87,11 @@ public class OperationController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Operation update(@RequestBody Operation operationObj) {
+    	operationService.save(operationObj);
+    	return operationObj;
+    
+	}
 }

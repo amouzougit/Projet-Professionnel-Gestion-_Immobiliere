@@ -1,10 +1,12 @@
 package microservice.bien.controller.Gestion_Users;
 
 
+import microservice.bien.model.Gestion_Immobilier.Caracteristique_Bien;
 import microservice.bien.model.Gestion_Users.SAV;
 import microservice.bien.service.Gestion_Users.SAVService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -92,6 +94,14 @@ public class SAVController {
 
         return result;
     }
+    
+    
+    @PutMapping("/{id}/update")
+    public SAV update(@RequestBody SAV savObj) {
+    	savService.save(savObj);
+    	return savObj;
+    
+	}
 
 
 

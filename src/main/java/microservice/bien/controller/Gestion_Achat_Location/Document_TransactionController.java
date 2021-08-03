@@ -1,5 +1,6 @@
 package microservice.bien.controller.Gestion_Achat_Location;
 
+import microservice.bien.model.Gestion_Achat_Location.Document_Operation;
 import microservice.bien.model.Gestion_Achat_Location.Document_Transaction;
 import microservice.bien.service.Gestion_Achat_Location.Document_TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,4 +87,11 @@ public class Document_TransactionController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Document_Transaction update(@RequestBody Document_Transaction document_transactionObj) {
+    	document_transactionService.save(document_transactionObj);
+    	return document_transactionObj;
+    
+	}
 }

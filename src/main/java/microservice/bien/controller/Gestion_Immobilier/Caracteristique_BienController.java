@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
 
+import microservice.bien.model.Gestion_Achat_Location.Type_Operation;
 import microservice.bien.model.Gestion_Immobilier.Caracteristique_Bien;
 import microservice.bien.service.Gestion_Immobilier.Caracteristique_BienService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,4 +89,11 @@ public class Caracteristique_BienController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Caracteristique_Bien update(@RequestBody Caracteristique_Bien caracteristique_bienObj) {
+    	caracteristique_bienService.save(caracteristique_bienObj);
+    	return caracteristique_bienObj;
+    
+	}
 }

@@ -1,5 +1,6 @@
 package microservice.bien.controller.Gestion_publication;
 
+import microservice.bien.model.Gestion_Achat_Location.Mode_Transaction;
 import microservice.bien.model.Gestion_publication.Type_Publication;
 import microservice.bien.service.Gestion_publication.Type_PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,4 +87,12 @@ public class Type_PublicationController {
 
         return result;
     }
+    
+    @PutMapping("/{id}/update")
+    public Type_Publication update(@RequestBody Type_Publication type_publicationObj) {
+    	type_publicationService.save(type_publicationObj);
+    	return type_publicationObj;
+    }
+    
+    
 }

@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import microservice.bien.model.Gestion_Immobilier.Type_Bien;
 import microservice.bien.model.Gestion_Users.Role;
 import microservice.bien.service.Gestion_Users.RoleService;
 
 
 @RestController
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RequestMapping(value = "/service/role")
 public class RoleController {
 
@@ -90,6 +93,12 @@ public class RoleController {
 	        }
 
 	        return result;
+	    }
+	    
+	    @PutMapping("/{id}/update")
+	    public Role update(@RequestBody Role roleObj) {
+	    	roleService.save(roleObj);
+	    	return roleObj;
 	    }
 
 }

@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Users;
 
 import microservice.bien.model.Gestion_Users.Notaire;
+import microservice.bien.model.Gestion_Users.Personne;
 import microservice.bien.service.Gestion_Users.NotaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -86,4 +87,10 @@ public class NotaireController {
 
 		return result;
 	}
+	
+	@PutMapping("/{id}/update")
+    public Notaire update(@RequestBody Notaire notaireObj) {
+		notaireService.save(notaireObj);
+    	return notaireObj;
+ }
 }
