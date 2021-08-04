@@ -7,15 +7,29 @@ import javax.persistence.*;
 public class Client extends Personne {
    //@Id
    //@Column(name = "id")
-    private Integer id;
+    private Long id;
 
     public Client()
     {
     }
-    public Client(String nom, String prenom, String adress, String email, String telephone, String password, Integer id,String username, Role role) {
+    public Client(String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
         super(nom, prenom, adress, email, telephone, password,username,role);
         this.id = id;
     }
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+    
+    
+    
+    
+	
+    
+    
     
     
     

@@ -9,9 +9,9 @@ import java.util.List;
 @Entity
 @Table(name="proprietaire")
 public class Proprietaire extends Personne{
-   //@Id
-   // @GeneratedValue(strategy = GenerationType.AUTO)
-   //@Column(name = "id",nullable = false)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+   	//@Column(name = "id",nullable = false)
     private Long id;
 
     @OneToMany(mappedBy="proprietaire", fetch= FetchType.EAGER)
@@ -30,6 +30,17 @@ public class Proprietaire extends Personne{
 	public void setId(Long id) {
 		this.id = id;
 	}
+	public List<Bien> getBiens() {
+		return biens;
+	}
+	public void setBiens(List<Bien> biens) {
+		this.biens = biens;
+	}
+    
+    
+    
+    
+	
     
 }
 

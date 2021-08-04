@@ -10,15 +10,23 @@ import java.util.List;
 public class Demarcheur  extends Personne{
 	//@Id
     //@Column(name = "id",nullable = true)
-    public Integer id;
+    public Long id;
 
     public Demarcheur()
     {
     }
-    public Demarcheur(String nom, String prenom, String adress, String email, String telephone, String password, Integer id,String username, Role role) {
+    public Demarcheur(String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
         super(nom, prenom, adress, email, telephone,password,username, role);
         this.id = id;
     }
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+    
+    
 	
 	
    

@@ -92,7 +92,7 @@ public class BienController {
     
     @PutMapping("/{id}/update")
     public Bien update(@RequestBody Bien bienObj) {
-    	bienService.save(bienObj);
+    	bienService.createBien(bienObj);
     	return bienObj;
     }
     

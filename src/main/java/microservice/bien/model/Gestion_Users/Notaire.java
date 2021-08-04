@@ -15,7 +15,7 @@ public class Notaire extends Personne{
     //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     //@Column(name = "id")
-   private Integer id;
+   private Long id;
 
     @Column(name = "nom_cabinet", nullable = false)
     private String nom_cabinet;
@@ -26,7 +26,7 @@ public class Notaire extends Personne{
     public Notaire(){
     }
 
-    public Notaire(String nom, String prenom, String adress, String email, String telephone, String password, Integer id, String nom_cabinet,String carte_identite,String username, Role role) {
+    public Notaire(String nom, String prenom, String adress, String email, String telephone, String password, Long id, String nom_cabinet,String carte_identite,String username, Role role) {
         super(nom, prenom, adress, email, telephone,username,password,role);
         this.id = id;
         this.nom_cabinet = nom_cabinet;
@@ -50,6 +50,16 @@ public class Notaire extends Personne{
 	public void setCarte_identite(String carte_identite) {
 		this.carte_identite = carte_identite;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
     
     
 }

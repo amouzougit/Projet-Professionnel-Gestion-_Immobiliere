@@ -1,11 +1,10 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
 
-import microservice.bien.model.Gestion_Immobilier.Caracteristique_Bien;
 import microservice.bien.model.Gestion_Immobilier.Document_Bien;
 import microservice.bien.service.Gestion_Immobilier.Document_BienService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -92,5 +91,9 @@ public class Document_BienController {
     }
     
     
-   
+    @PutMapping("/{id}/update")
+    public Document_Bien update(@RequestBody Document_Bien document_bienObj) {
+    	document_BienService.getDocument_bien(document_bienObj);
+    	return document_bienObj;
+    }
 }
