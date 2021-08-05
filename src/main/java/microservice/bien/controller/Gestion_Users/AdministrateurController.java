@@ -6,6 +6,8 @@ import microservice.bien.model.Gestion_Users.Agent_Immobiliere;
 import microservice.bien.service.Gestion_Users.AdministrateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,17 +21,45 @@ public class AdministrateurController {
     //@Qualifier(value ="administrateurService")
     private AdministrateurService administrateurService;
 
-    @RequestMapping(value ="/save", method = RequestMethod.POST,headers = "Accept=application/json")
+    //,headers = "Accept=application/json"
+    @RequestMapping(value ="/save", method = RequestMethod.POST)
     @ResponseBody
-    public Administrateur save(@RequestBody Administrateur administrateur)
+    public ResponseEntity<?> save(@RequestBody Administrateur administrateur)
     {
+    	
         try{
-            administrateur = this.administrateurService.save(administrateur);
+        	System.out.println("admin");
+			List <Administrateur> administrateurs = this.administrateurService.getAll();
+			
+			for(Administrateur admin:administrateurs) {
+				if(admin.getUsername().equalsIgnoreCase(administrateur.getUsername())) {
+		        	System.out.println("admin reponse");
+
+					return new ResponseEntity<String>("username deja utiliser",HttpStatus.BAD_REQUEST);
+				
+				}
+				if(admin.getEmail().equalsIgnoreCase(administrateur.getEmail())) {
+		        	System.out.println("admin reponse");
+
+					return new ResponseEntity<String>("email deja utiliser",HttpStatus.BAD_REQUEST);
+				
+				}
+			}
+
+            Administrateur ad = this.administrateurService.save(administrateur);
+    		return ResponseEntity.ok(ad);
+    		
+
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
-        return administrateur;
+		
+		return new ResponseEntity<String>("requete echouer",HttpStatus.BAD_REQUEST);
+
+
     }
+    
+
 
     @RequestMapping(value = "/saveAll", method = RequestMethod.POST, headers = "Accept=application/json")
     @ResponseBody public List<Administrateur> saveAll(@RequestBody List<Administrateur> administrateurs) {

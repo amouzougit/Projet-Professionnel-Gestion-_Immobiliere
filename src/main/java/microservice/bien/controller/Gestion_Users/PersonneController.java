@@ -5,6 +5,7 @@ import microservice.bien.model.Gestion_Users.Plainte;
 import microservice.bien.service.Gestion_Users.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,11 +24,13 @@ public class PersonneController {
 	public Personne save(@RequestBody Personne personne)
 	{
 		try{
+			
 			personne = this.personneService.save(personne);
 		}catch(Exception  ex){
 			System.out.println(ex.getMessage());
 		}
-		return personne;
+		 
+			return personne;
 
 	}
 	

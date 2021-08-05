@@ -21,14 +21,14 @@ public class Personne extends BaseEntity {
     @Column(name = "adress", nullable = false)
     protected String adress;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     protected String email;
 
     @Column(name = "telephone", nullable = false)
     protected String telephone;
 
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     protected String username;
 
 
