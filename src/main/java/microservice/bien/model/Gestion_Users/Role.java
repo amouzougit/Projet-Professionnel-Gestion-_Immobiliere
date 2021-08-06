@@ -53,6 +53,19 @@ public class Role extends BaseEntity{
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+
+	@Override
+	public String toString() {
+		return "Role [id_role=" + id_role + ", code=" + code + ", libelle=" + libelle + ", createdBy=" + createdBy
+				+ ", createdDate=" + createdDate + ", lastModifiedBy=" + lastModifiedBy + ", lastModifiedDate="
+				+ lastModifiedDate + ", getIdRole()=" + getIdRole() + ", getCode()=" + getCode() + ", getLibelle()="
+				+ getLibelle() + ", getCreatedBy()=" + getCreatedBy() + ", getCreatedDate()=" + getCreatedDate()
+				+ ", getLastModifiedBy()=" + getLastModifiedBy() + ", getLastModifiedDate()=" + getLastModifiedDate()
+				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ "]";
+	}
+	
+	
 	
 	
 	

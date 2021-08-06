@@ -25,6 +25,24 @@ public class Administrateur extends Personne{
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Administrateur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adress=" + adress + ", email="
+				+ email + ", telephone=" + telephone + ", username=" + username + ", password=" + password
+				+ ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", lastModifiedBy=" + lastModifiedBy
+				+ ", lastModifiedDate=" + lastModifiedDate + ", getId()=" + getId() + ", getNom()=" + getNom()
+				+ ", getPrenom()=" + getPrenom() + ", getAdress()=" + getAdress() + ", getEmail()=" + getEmail()
+				+ ", getTelephone()=" + getTelephone() + ", getUsername()=" + getUsername() + ", getPassword()="
+				+ getPassword() + ", getRole()=" + getRole() + ", toString()=" + super.toString() + ", getCreatedBy()="
+				+ getCreatedBy() + ", getCreatedDate()=" + getCreatedDate() + ", getLastModifiedBy()="
+				+ getLastModifiedBy() + ", getLastModifiedDate()=" + getLastModifiedDate() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + "]";
+	}
+	
+	
+	
     
     
 
