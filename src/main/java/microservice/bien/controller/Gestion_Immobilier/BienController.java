@@ -1,19 +1,15 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
-import microservice.bien.model.Gestion_Achat_Location.Type_Operation;
 import microservice.bien.model.Gestion_Immobilier.Bien;
-import microservice.bien.model.Gestion_Immobilier.Caracteristique_Bien;
-import microservice.bien.model.Gestion_Users.Role;
 import microservice.bien.service.Gestion_Immobilier.BienService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/service/bien")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RestController
 public class BienController {
 

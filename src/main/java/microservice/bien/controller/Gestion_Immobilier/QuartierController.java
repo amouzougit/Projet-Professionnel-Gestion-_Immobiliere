@@ -1,7 +1,6 @@
 package microservice.bien.controller.Gestion_Immobilier;
 
 
-import microservice.bien.model.Gestion_Immobilier.Pays;
 import microservice.bien.model.Gestion_Immobilier.Quartier;
 import microservice.bien.service.Gestion_Immobilier.QuartierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RequestMapping(value="/service/quartier")
 public class QuartierController {
 

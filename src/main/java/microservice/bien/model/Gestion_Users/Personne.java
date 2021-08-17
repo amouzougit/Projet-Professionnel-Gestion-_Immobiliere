@@ -35,6 +35,9 @@ public class Personne extends BaseEntity {
     @Column(name = "password", nullable = false)
     protected String password;
     
+	@Column(name = "isVerified", nullable = false)
+	private Boolean isVerified = false;
+    
     
     @ManyToOne
     @JoinColumn(name ="id_role",nullable = false)
@@ -125,6 +128,15 @@ public class Personne extends BaseEntity {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	
+
+	public Boolean getIsVerified() {
+		return isVerified;
+	}
+
+	public void setIsVerified(Boolean isVerified) {
+		this.isVerified = isVerified;
 	}
 
 	@Override

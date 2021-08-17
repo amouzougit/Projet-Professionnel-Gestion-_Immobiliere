@@ -24,7 +24,7 @@ public class Pays extends BaseEntity {
     {
     }
 
-    public Pays(Integer id_pays, String nom,String code, String libelle) {
+    public Pays(Integer id_pays, String code, String libelle) {
         this.id_pays = id_pays;
         this.libelle = libelle;
         this.code = code;

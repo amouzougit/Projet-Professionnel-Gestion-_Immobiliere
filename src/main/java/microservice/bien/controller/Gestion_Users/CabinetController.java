@@ -1,7 +1,6 @@
 package microservice.bien.controller.Gestion_Users;
 
 
-import microservice.bien.model.Gestion_Immobilier.Quartier;
 import microservice.bien.model.Gestion_Users.Cabinet;
 import microservice.bien.service.Gestion_Users.CabinetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 @RestController
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RequestMapping(value= "/service/cabinet")
 public class CabinetController {
 

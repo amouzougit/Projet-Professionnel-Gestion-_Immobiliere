@@ -18,11 +18,6 @@ public class Type_Publication extends BaseEntity {
     @Column(name = "libelle", nullable = false)
     private String libelle;
 
-   /* @OneToMany(mappedBy="type_publication", fetch=FetchType.EAGER)
-    private List<Publication> publications;
-    */
-
-
     public Type_Publication()
     {
     }

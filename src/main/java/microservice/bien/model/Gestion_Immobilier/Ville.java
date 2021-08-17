@@ -18,8 +18,6 @@ public class Ville extends BaseEntity {
     @JoinColumn(name="id_pays", nullable = false)
     private Pays pays;
 
-  
-
     @Column(name = "libelle", nullable = false)
     private String libelle;
 
@@ -59,15 +57,6 @@ public class Ville extends BaseEntity {
     public void setCode(String code) {
         this.code = code;
     }
-
-	/*public List<Quartier> getQuartier() {
-		return quartier;
-	}
-
-	public void setQuartier(List<Quartier> quartier) {
-		this.quartier = quartier;
-	}
-	*/
 
 	public Pays getPays() {
 		return pays;

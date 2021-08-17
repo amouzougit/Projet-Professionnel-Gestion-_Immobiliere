@@ -13,6 +13,9 @@ public interface PersonneService {
     public Personne getById(Long id);
 
     public Personne save(Personne personne);
+    
+	public Personne getByTelephone(String telephone);
+
 
     public List<Personne> saveAll(List<Personne> personnes);
 

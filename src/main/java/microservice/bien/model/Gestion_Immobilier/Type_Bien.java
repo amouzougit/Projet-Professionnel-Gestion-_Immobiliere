@@ -58,12 +58,5 @@ public class Type_Bien extends BaseEntity {
         this.libelle = libelle;
     }
 
-	/*public List<Bien> getBiens() {
-		return biens;
-	}
 
-	public void setBiens(List<Bien> biens) {
-		this.biens = biens;
-	}
-    */
 }

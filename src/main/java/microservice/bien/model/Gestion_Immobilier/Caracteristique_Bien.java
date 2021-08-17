@@ -17,24 +17,30 @@ public class Caracteristique_Bien extends BaseEntity {
     @Column(name = "nbre_salon", nullable = false)
     private Integer nbre_salon;
 
-    @Column(name = "nrbre_etage", nullable = false)
-    private Integer nrbre_etage;
+    @Column(name = "nbre_etage", nullable = false)
+    private Integer nbre_etage;
 
-    @Column(name = "balcon", nullable = false)
-    private String balcon;
+    @Column(name = "nbre_balcon", nullable = false)
+    private Integer nbre_balcon;
 
     public Caracteristique_Bien(){
 
     }
-    public Caracteristique_Bien(Integer id_caracteristique_bien, Integer nbre_chambre, Integer nbre_salon, Integer nrbre_etage, String balcon) {
+    public Caracteristique_Bien(Integer id_caracteristique_bien, Integer nbre_chambre, Integer nbre_salon, Integer nbre_etage, Integer nbre_balcon) {
         this.id_caracteristique_bien = id_caracteristique_bien;
         this.nbre_chambre = nbre_chambre;
         this.nbre_salon = nbre_salon;
-        this.nrbre_etage = nrbre_etage;
-        this.balcon = balcon;
+        this.nbre_etage = nbre_etage;
+        this.nbre_balcon = nbre_balcon;
     }
-
-    public Integer getId_caracteristique_bien() {
+    
+    public Integer getNbre_balcon() {
+		return nbre_balcon;
+	}
+	public void setNbre_balcon(Integer nbre_balcon) {
+		this.nbre_balcon = nbre_balcon;
+	}
+	public Integer getId_caracteristique_bien() {
         return id_caracteristique_bien;
     }
 
@@ -58,20 +64,14 @@ public class Caracteristique_Bien extends BaseEntity {
         this.nbre_salon = nbre_salon;
     }
 
-    public Integer getNrbre_etage() {
-        return nrbre_etage;
+    public Integer getNbre_etage() {
+        return nbre_etage;
     }
 
-    public void setNrbre_etage(Integer nrbre_etage) {
-        this.nrbre_etage = nrbre_etage;
+    public void setNbre_etage(Integer nbre_etage) {
+        this.nbre_etage = nbre_etage;
     }
 
-    public String getBalcon() {
-        return balcon;
-    }
 
-    public void setBalcon(String balcon) {
-        this.balcon = balcon;
-    }
     
 }

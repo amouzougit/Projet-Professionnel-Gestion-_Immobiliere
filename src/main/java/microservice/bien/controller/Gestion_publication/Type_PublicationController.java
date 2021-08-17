@@ -1,16 +1,14 @@
 package microservice.bien.controller.Gestion_publication;
 
-import microservice.bien.model.Gestion_Achat_Location.Mode_Transaction;
 import microservice.bien.model.Gestion_publication.Type_Publication;
 import microservice.bien.service.Gestion_publication.Type_PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 @RestController
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RequestMapping(value="/service/type_publication")
 public class Type_PublicationController {
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 @RestController
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RequestMapping(value = "/service/modetransaction")
 public class Mode_TransactionController {
 

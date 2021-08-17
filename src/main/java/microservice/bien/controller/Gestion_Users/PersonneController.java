@@ -1,4 +1,9 @@
 package microservice.bien.controller.Gestion_Users;
+import microservice.bien.service.smsService.SmsService;
+import microservice.bien.model.PersonneVerificationRequestData;
+import microservice.bien.model.SmsVerification;
+
+
 
 import microservice.bien.model.Gestion_Users.Administrateur;
 import microservice.bien.model.Gestion_Users.Agent_Immobilier;
@@ -61,11 +66,16 @@ public class PersonneController {
 	
 	@Autowired
     private SAVService savService;
+	
+	@Autowired
+	private SmsService smsService;
 
-	@RequestMapping(value = "/save", method= RequestMethod.POST)//headers = "accept = application/json")
-	@ResponseBody
+	@RequestMapping(value = "/save", method= RequestMethod.POST) //headers = "accept = application/json")
+	
 	public ResponseEntity<?> save(@RequestBody CreatePersonne createPersonne)
 	{
+		
+
 		try{
 			String username = createPersonne.getUsername() ;
 			String email = createPersonne.getEmail() ;
@@ -120,6 +130,22 @@ public class PersonneController {
 					return ResponseEntity.badRequest().body("roleId invalid");
 					
 				}
+				
+				//envoi de sms 
+				
+				String code = smsService.sendCode(createPersonne.getTelephone());
+				if(code == null)
+				{
+					return ResponseEntity.badRequest().body("error lors de l'envoi de code");
+				}
+				smsService.save(
+						new SmsVerification(code,createPersonne.getTelephone())
+				);
+				
+				
+				
+				
+				
 				System.out.println("role libelle "+role.getLibelle());
 				
 				if(role.getLibelle().equalsIgnoreCase("administrateur")) {
@@ -251,6 +277,8 @@ public class PersonneController {
 					
 				}
 				
+				//
+				
 				
 			}
 			
@@ -285,8 +313,48 @@ public class PersonneController {
 		}
 		 
 		return ResponseEntity.badRequest().body("requete echouer");
+		
 
 	}
+	
+	
+	@RequestMapping(value ="/verify", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> saveVerified(
+			@RequestBody PersonneVerificationRequestData data
+			)
+	{
+		SmsVerification smsVerification;
+		
+		try{
+			 smsVerification = this.smsService.getByTelephoneAndCode(data.getTelephone(),data.getCode());
+		}catch (Exception ex){
+			System.out.println(ex.getMessage());
+			return ResponseEntity.badRequest().body("error serveur");
+		}
+		if(smsVerification == null) {
+			return ResponseEntity.badRequest().body("votre code de verification est incorrect");
+		}
+		
+		smsVerification.setIsverified(true);
+		smsService.save(smsVerification);
+		
+		Personne personne = personneService.getByTelephone(data.getTelephone());
+		
+		if(personne == null) {
+			return ResponseEntity.badRequest().body("aucun user trouver avec ce numero");
+		}
+		
+		personne.setIsVerified(true);
+		personneService.save(personne);
+		
+		return ResponseEntity.ok(personne);
+		
+
+	}
+
+	
+	
 	
 	@RequestMapping(value = "saveAll",method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody public List<Personne> saveAll(@RequestBody List<Personne> personnes){
@@ -351,6 +419,8 @@ public class PersonneController {
 		personneService.save(personneObj);
     	return personneObj;
  }
+	
+	
 
 
 

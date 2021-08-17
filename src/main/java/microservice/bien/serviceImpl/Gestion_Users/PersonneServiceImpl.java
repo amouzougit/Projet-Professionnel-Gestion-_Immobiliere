@@ -4,8 +4,8 @@ import microservice.bien.dao.Gestion_Users.PersonneDao;
 import microservice.bien.model.Gestion_Users.Personne;
 import microservice.bien.service.Gestion_Users.PersonneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
@@ -52,4 +52,10 @@ public class PersonneServiceImpl implements PersonneService {
  	   
  	   return this.personneDao.findByUsernameAndPassword(username, password);
     }
+    
+    @Override
+	public Personne getByTelephone(String telephone) {
+		
+		 return this.personneDao.findByTelephone(telephone);
+	}
 }

@@ -24,27 +24,27 @@ public class Bien extends BaseEntity {
     private Quartier quartier;
 
     @ManyToOne
-    @JoinColumn(name ="id_demarcheur",nullable = false)
+    @JoinColumn(name ="id_demarcheur",nullable = true)
     private Demarcheur demarcheur;
     
 
     @ManyToOne
-    @JoinColumn(name ="id_agent_immobilier",nullable = false)
+    @JoinColumn(name ="id_agent_immobilier",nullable = true)
     private Agent_Immobilier agent_immobilier;
 
 
     @ManyToOne
-    @JoinColumn(name ="id_proprietaire",nullable = false)
+    @JoinColumn(name ="id_proprietaire",nullable = true)
     private Proprietaire proprietaire;
 
-    @Column(name = "code", nullable = false, unique = true)
+    @Column(name = "code", nullable = false, unique = false)
     private String code;
 
     @Column(name = "libelle", nullable = false)
     private String libelle;
 
     @Column(name = "date_ajout", nullable = false)
-    private Date date_ajout;
+    private Date date_ajout = new Date();
 
     @Column(name = "surface", nullable = false)
     private Float surface;
@@ -64,13 +64,16 @@ public class Bien extends BaseEntity {
 
     @Column(name = "certificat", nullable = false)
     private String certificat;
+    
+    @Column(name = "prix", nullable = false)
+    private String prix;
 
     public Bien()
     {
 
     }
 
-    public Bien(Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude, Agent_Immobilier agent_immobilier,Type_Bien type_bien,Demarcheur demarcheur,Proprietaire proprietaire,Quartier quartier) {
+    public Bien(Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude, Agent_Immobilier agent_immobilier,Type_Bien type_bien,Demarcheur demarcheur,Proprietaire proprietaire,Quartier quartier,String prix) {
         this.id_bien = id_bien;
         this.code = code;
         this.libelle = libelle;
@@ -86,11 +89,20 @@ public class Bien extends BaseEntity {
         this.demarcheur = demarcheur;
         this.proprietaire = proprietaire;
         this.quartier = quartier;
+        this.prix = prix;
 
 
     }
+    
+    public String getPrix() {
+		return prix;
+	}
 
-    public Long getId_bien() {
+	public void setPrix(String prix) {
+		this.prix = prix;
+	}
+
+	public Long getId_bien() {
         return id_bien;
     }
 
@@ -225,6 +237,7 @@ public class Bien extends BaseEntity {
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", statuts=" + statuts +
+                 ", prix=" + prix +
                 ", certificat='" + certificat + '\'' +
 
                 '}';

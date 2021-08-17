@@ -14,9 +14,6 @@ public class Proprietaire extends Personne{
    	//@Column(name = "id",nullable = false)
     private Long id;
 
-    @OneToMany(mappedBy="proprietaire", fetch= FetchType.EAGER)
-    private List<Bien> biens;
-
     public Proprietaire(){
 
     }
@@ -30,12 +27,8 @@ public class Proprietaire extends Personne{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public List<Bien> getBiens() {
-		return biens;
-	}
-	public void setBiens(List<Bien> biens) {
-		this.biens = biens;
-	}
+
+
     
     
     

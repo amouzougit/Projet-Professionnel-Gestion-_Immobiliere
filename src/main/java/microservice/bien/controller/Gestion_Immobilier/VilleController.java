@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @RequestMapping("/service/ville")
 public class VilleController {
 
