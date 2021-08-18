@@ -19,6 +19,10 @@ public class Document_Bien extends BaseEntity {
 
     @Column(name = "status", nullable = false)
     private Boolean status;
+    
+    
+    @Column(name = "url", nullable = false)
+    private String url;
 
 
     @ManyToOne
@@ -30,11 +34,12 @@ public class Document_Bien extends BaseEntity {
 
     }
 
-    public Document_Bien(Integer id_document_bien, String code, String libelle, Boolean status) {
-        this.id_document_bien = id_document_bien;
+    public Document_Bien( String url, String code, String libelle, Boolean status, Bien bien) {
         this.code = code;
         this.libelle = libelle;
         this.status = status;
+        this.bien = bien;
+        this.url = url;
     }
 
     public Integer getId_document_bien() {
@@ -76,6 +81,16 @@ public class Document_Bien extends BaseEntity {
 	public void setBien(Bien bien) {
 		this.bien = bien;
 	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	
 	
     
 }

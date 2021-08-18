@@ -1,4 +1,4 @@
-package microservice.bien.model.Gestion_Immobilier;
+ package microservice.bien.model.Gestion_Immobilier;
 
 import microservice.bien.model.BaseEntity;
 

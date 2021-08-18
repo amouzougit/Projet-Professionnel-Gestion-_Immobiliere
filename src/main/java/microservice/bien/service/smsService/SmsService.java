@@ -10,9 +10,8 @@ import microservice.bien.model.SmsVerification;
 	@Service("SmsService")
 	public interface SmsService {
 		
-		public static  String API_USERNAME = "kevoamouzou@gmail.com";
-		public static  String API_KEY = "E4F4B459-64E5-4E90-50C5-042C48986F6E";
-		
+		public static  String API_USERNAME = "pidenam.tchodou@ipnetinstitute.com";
+		public static  String API_KEY = "E50384AA-7B71-B51B-DAB9-AC8E58711970";
 		
 		
 		public  String sendCode(String telephone);

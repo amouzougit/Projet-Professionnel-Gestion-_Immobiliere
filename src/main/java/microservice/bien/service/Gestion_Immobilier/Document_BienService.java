@@ -1,5 +1,6 @@
 package microservice.bien.service.Gestion_Immobilier;
 
+import microservice.bien.model.Gestion_Immobilier.Bien;
 import microservice.bien.model.Gestion_Immobilier.Document_Bien;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,9 @@ public interface Document_BienService {
 
 
     public List<Document_Bien> listDocumentBien();
+    
+    public Document_Bien save(Document_Bien document_bien);
+
 
     public Document_Bien getById(Integer id);
 

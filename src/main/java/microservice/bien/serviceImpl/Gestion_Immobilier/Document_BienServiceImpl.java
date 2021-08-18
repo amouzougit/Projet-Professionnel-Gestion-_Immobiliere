@@ -1,6 +1,7 @@
 package microservice.bien.serviceImpl.Gestion_Immobilier;
 
 import microservice.bien.dao.Gestion_Immobilier.Document_BienDao;
+import microservice.bien.model.Gestion_Immobilier.Bien;
 import microservice.bien.model.Gestion_Immobilier.Document_Bien;
 import microservice.bien.service.Gestion_Immobilier.Document_BienService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,4 +46,9 @@ public class Document_BienServiceImpl implements Document_BienService {
 		this.document_bienDao.deleteAll();
 
 	}
+
+
+	@Override
+	public Document_Bien save(Document_Bien document_bien) {
+		return this.document_bienDao.save(document_bien);	}
 }
