@@ -28,18 +28,25 @@ public class Document_Bien extends BaseEntity {
     @ManyToOne
     @JoinColumn(name ="id_bien",nullable = false)
     private Bien bien;
+    
+    
+    @ManyToOne
+    @JoinColumn(name ="id_type_document",nullable = false)
+    private TypeDocument typeDocument;
+    
 
 
     public Document_Bien(){
 
     }
 
-    public Document_Bien( String url, String code, String libelle, Boolean status, Bien bien) {
+    public Document_Bien(TypeDocument typeDocument, String url, String code, String libelle, Boolean status, Bien bien) {
         this.code = code;
         this.libelle = libelle;
         this.status = status;
         this.bien = bien;
         this.url = url;
+        this.typeDocument = typeDocument;
     }
 
     public Integer getId_document_bien() {
@@ -89,6 +96,16 @@ public class Document_Bien extends BaseEntity {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+	public TypeDocument getTypeDocument() {
+		return typeDocument;
+	}
+
+	public void setTypeDocument(TypeDocument typeDocument) {
+		this.typeDocument = typeDocument;
+	}
+	
+	
 	
 	
 	

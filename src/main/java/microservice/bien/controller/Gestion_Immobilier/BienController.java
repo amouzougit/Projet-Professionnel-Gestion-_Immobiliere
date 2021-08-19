@@ -2,8 +2,10 @@ package microservice.bien.controller.Gestion_Immobilier;
 
 import microservice.bien.model.Gestion_Immobilier.Bien;
 import microservice.bien.model.Gestion_Immobilier.Document_Bien;
+import microservice.bien.model.Gestion_Immobilier.TypeDocument;
 import microservice.bien.service.Gestion_Immobilier.BienService;
 import microservice.bien.service.Gestion_Immobilier.Document_BienService;
+import microservice.bien.service.Gestion_Immobilier.TypeDocumentService;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,12 @@ public class BienController {
     
     @Autowired
     private Document_BienService document_BienService;
+    
+    @Autowired
+    private TypeDocumentService typedocumentService;
+    
+    
+    
 
     @RequestMapping(value ="/save", method = RequestMethod.POST,headers = "Accept=application/json")
     @ResponseBody public Bien save(@RequestBody Bien bien)
@@ -61,20 +69,25 @@ public class BienController {
         	Resource resource = new ClassPathResource(location);
         	String url = resource.getURL().toString().substring(6);
         	System.out.println(url);
-        	 Path rootLocation = Paths.get(url);
+        	 Path rootLocation = Paths.get("E:\\Afe-Nyui\\MyApp\\MyApp\\src\\assets\\images\\document_image");
+        	 
         	Bien  bien = this.bienService.getById(bien_id);
         	if(bien == null) {
         		ResponseEntity.badRequest().body("pas de bien trouver avec cet id");
         	}
         	
+        	String type = file.getContentType();
+        	
+        	TypeDocument  typedocument = new TypeDocument("document typecode",type);
+        	
+        	TypeDocument typedocument_create = this.typedocumentService.save(typedocument);
+        	
         	String file_name = UUID.randomUUID().toString();
         	
 			Files.copy(file.getInputStream(), rootLocation.resolve(file_name));
 
-			
-			String document_url = "http://localhost:8095/service/bien/files/" + file_name;
-        	
-        	Document_Bien document_Bien = new Document_Bien(document_url,"code", document_libelle, true, bien);
+		        	
+        	Document_Bien document_Bien = new Document_Bien(typedocument_create, file_name,"code", document_libelle, true, bien);
         	
         	Document_Bien document_Bien_create = document_BienService.save(document_Bien);
         	
