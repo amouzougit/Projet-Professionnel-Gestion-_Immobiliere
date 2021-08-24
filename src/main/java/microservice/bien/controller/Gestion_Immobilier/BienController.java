@@ -3,9 +3,14 @@ package microservice.bien.controller.Gestion_Immobilier;
 import microservice.bien.model.Gestion_Immobilier.Bien;
 import microservice.bien.model.Gestion_Immobilier.Document_Bien;
 import microservice.bien.model.Gestion_Immobilier.TypeDocument;
+import microservice.bien.model.Gestion_Users.AgenceImmobiliere;
+import microservice.bien.model.Gestion_Users.Agent_Immobilier;
+import microservice.bien.model.Gestion_Users.Personne;
+import microservice.bien.model.Gestion_publication.Publication;
 import microservice.bien.service.Gestion_Immobilier.BienService;
 import microservice.bien.service.Gestion_Immobilier.Document_BienService;
 import microservice.bien.service.Gestion_Immobilier.TypeDocumentService;
+import microservice.bien.service.Gestion_Users.Agent_ImmobilierService;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,12 +49,18 @@ public class BienController {
     private TypeDocumentService typedocumentService;
     
     
+    @Autowired
+    private Agent_ImmobilierService agent_immobilierService;
+    
     
 
     @RequestMapping(value ="/save", method = RequestMethod.POST,headers = "Accept=application/json")
     @ResponseBody public Bien save(@RequestBody Bien bien)
     {
         try{
+        	bien.setStatuts(true);
+        	bien.setDisponibilite(true);
+        	bien.setCode("biem" + System.currentTimeMillis()+"");
             bien = this.bienService.createBien(bien);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
@@ -84,10 +95,9 @@ public class BienController {
         	
         	String file_name = UUID.randomUUID().toString();
         	
-			Files.copy(file.getInputStream(), rootLocation.resolve(file_name));
-
-		        	
-        	Document_Bien document_Bien = new Document_Bien(typedocument_create, file_name,"code", document_libelle, true, bien);
+			Files.copy(file.getInputStream(), rootLocation.resolve(file_name + file.getOriginalFilename()));
+   	
+        	Document_Bien document_Bien = new Document_Bien(typedocument_create, file_name + file.getOriginalFilename(),"code", document_libelle, true, bien);
         	
         	Document_Bien document_Bien_create = document_BienService.save(document_Bien);
         	
@@ -95,8 +105,6 @@ public class BienController {
 
         }
     
-    
-
 	@GetMapping(value="/files/{filename:.+}",   produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	public ResponseEntity<?> serveFile(@PathVariable String filename) {
@@ -127,6 +135,21 @@ public class BienController {
 			
 		}
 	}
+	
+	
+	
+	@RequestMapping(value="/findByAgenceImmobiliere", method = RequestMethod.POST , headers = "Accept=application/json")
+	@ResponseBody public Agent_Immobilier findByAgentImmobilier(@RequestBody Agent_Immobilier agenceimmobiliere) {	{
+        try {
+        	
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return agenceimmobiliere;
+    }
+	}
+	
     
     
 
@@ -193,6 +216,25 @@ public class BienController {
     	bienService.createBien(bienObj);
     	return bienObj;
     }
+    
+    
+    @GetMapping("/findbyagentimmobilier/{id}")
+    public List< Bien> findByAgent_Immobilier(@PathVariable Integer id) {
+    	
+    	//recuperation de l'agent immobilier par son id
+    	Agent_Immobilier agentimmobilier = this.agent_immobilierService.getById(id);
+    	
+    	
+    	//recuperation des biens de l'agent immobilier
+    	List<Bien> biens = this.bienService.findByAgentImmobilier(agentimmobilier);
+    	
+    	//retour des biens de l'agent immobilier
+    	return biens;
+    	
+    	
+    
+   
+ }
     
    
 

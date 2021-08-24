@@ -30,7 +30,7 @@ public class Bien extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name ="id_agent_immobilier",nullable = true)
-    private Agent_Immobilier agent_immobilier;
+    private Agent_Immobilier agentImmobilier;
 
 
     @ManyToOne
@@ -65,9 +65,6 @@ public class Bien extends BaseEntity {
     @Column(name = "certificat", nullable = false)
     private String certificat;
     
-    @Column(name = "prix", nullable = false)
-    private String prix;
-    
     @Column(name = "nbre_chambre", nullable = false)
     private Integer nbre_chambre;
 
@@ -80,12 +77,16 @@ public class Bien extends BaseEntity {
     @Column(name = "nbre_balcon", nullable = false)
     private Integer nbre_balcon;
 
+    
+    @Column(name = "description", nullable = false)
+    private String description;
+    
     public Bien()
     {
 
     }
 
-    public Bien(Integer nbre_balcon, Integer nbre_etage,Integer nbre_salon,Integer nbre_chambre,Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude, Agent_Immobilier agent_immobilier,Type_Bien type_bien,Demarcheur demarcheur,Proprietaire proprietaire,Quartier quartier,String prix) {
+    public Bien(String description, Integer nbre_balcon, Integer nbre_etage,Integer nbre_salon,Integer nbre_chambre,Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude, Agent_Immobilier agentImmobilier,Type_Bien type_bien,Demarcheur demarcheur,Proprietaire proprietaire,Quartier quartier,String prix) {
         this.id_bien = id_bien;
         this.code = code;
         this.libelle = libelle;
@@ -96,28 +97,20 @@ public class Bien extends BaseEntity {
         this.longitude = longitude;
         this.statuts = statuts;
         this.certificat = certificat;
-        this.agent_immobilier = agent_immobilier;
+        this.agentImmobilier = agentImmobilier;
         this. type_bien = type_bien;
         this.demarcheur = demarcheur;
         this.proprietaire = proprietaire;
         this.quartier = quartier;
-        this.prix = prix;
         this.nbre_salon = nbre_salon;
         this.nbre_etage = nbre_etage;
         this.nbre_chambre = nbre_chambre;
         this.nbre_balcon = nbre_balcon;
+        this.description = description;
 
 
     }
     
-    public String getPrix() {
-		return prix;
-	}
-
-	public void setPrix(String prix) {
-		this.prix = prix;
-	}
-
 	public Long getId_bien() {
         return id_bien;
     }
@@ -224,12 +217,12 @@ public class Bien extends BaseEntity {
 	}
 	
 
-	public Agent_Immobilier getAgent_immobilier() {
-		return agent_immobilier;
+	public Agent_Immobilier getAgentImmobilier() {
+		return agentImmobilier;
 	}
 
-	public void setAgent_immobilier(Agent_Immobilier agent_immobilier) {
-		this.agent_immobilier = agent_immobilier;
+	public void setAgentImmobilier(Agent_Immobilier agentImmobilier) {
+		this.agentImmobilier = agentImmobilier;
 	}
 
 	public Proprietaire getProprietaire() {
@@ -271,30 +264,35 @@ public class Bien extends BaseEntity {
 	public void setNbre_balcon(Integer nbre_balcon) {
 		this.nbre_balcon = nbre_balcon;
 	}
+	
+	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	@Override
 	public String toString() {
 		return "Bien [id_bien=" + id_bien + ", type_bien=" + type_bien + ", quartier=" + quartier + ", demarcheur="
-				+ demarcheur + ", agent_immobilier=" + agent_immobilier + ", proprietaire=" + proprietaire + ", code="
+				+ demarcheur + ", agentImmobilier=" + agentImmobilier + ", proprietaire=" + proprietaire + ", code="
 				+ code + ", libelle=" + libelle + ", date_ajout=" + date_ajout + ", surface=" + surface
 				+ ", disponibilite=" + disponibilite + ", latitude=" + latitude + ", longitude=" + longitude
-				+ ", statuts=" + statuts + ", certificat=" + certificat + ", prix=" + prix + ", nbre_chambre="
-				+ nbre_chambre + ", nbre_salon=" + nbre_salon + ", nbre_etage=" + nbre_etage + ", nbre_balcon="
-				+ nbre_balcon + ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", lastModifiedBy="
-				+ lastModifiedBy + ", lastModifiedDate=" + lastModifiedDate + ", getPrix()=" + getPrix()
-				+ ", getId_bien()=" + getId_bien() + ", getCode()=" + getCode() + ", getLibelle()=" + getLibelle()
-				+ ", getDate_ajout()=" + getDate_ajout() + ", getSurface()=" + getSurface() + ", getDisponibilite()="
-				+ getDisponibilite() + ", getLatitude()=" + getLatitude() + ", getLongitude()=" + getLongitude()
-				+ ", getStatuts()=" + getStatuts() + ", getCertificat()=" + getCertificat() + ", getType_bien()="
-				+ getType_bien() + ", getQuartier()=" + getQuartier() + ", getDemarcheur()=" + getDemarcheur()
-				+ ", getAgent_immobilier()=" + getAgent_immobilier() + ", getProprietaire()=" + getProprietaire()
-				+ ", getNbre_chambre()=" + getNbre_chambre() + ", getNbre_salon()=" + getNbre_salon()
-				+ ", getNbre_etage()=" + getNbre_etage() + ", getNbre_balcon()=" + getNbre_balcon()
-				+ ", getCreatedBy()=" + getCreatedBy() + ", getCreatedDate()=" + getCreatedDate()
-				+ ", getLastModifiedBy()=" + getLastModifiedBy() + ", getLastModifiedDate()=" + getLastModifiedDate()
-				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ "]";
+				+ ", statuts=" + statuts + ", certificat=" + certificat + ", nbre_chambre=" + nbre_chambre
+				+ ", nbre_salon=" + nbre_salon + ", nbre_etage=" + nbre_etage + ", nbre_balcon=" + nbre_balcon
+				+ ", description=" + description + "]";
 	}
+	
+	
+	
+	
+
+	
+	
+
 
 	
 }

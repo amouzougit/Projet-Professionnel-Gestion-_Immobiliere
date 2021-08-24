@@ -13,8 +13,8 @@ public class Administrateur extends Personne{
 
     }
 
-    public Administrateur(String nom, String prenom, String adress, String email, String telephone, String password,String username,Role role,Long id) {
-        super(nom, prenom, adress, email, telephone,username,password,role);
+    public Administrateur(String profil, String nom, String prenom, String adress, String email, String telephone, String password,String username,Role role,Long id) {
+        super(profil, nom, prenom, adress, email, telephone,username,password,role);
         this.id = id;
     }
 
@@ -26,7 +26,6 @@ public class Administrateur extends Personne{
 		this.id = id;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Administrateur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adress=" + adress + ", email="
@@ -35,11 +34,19 @@ public class Administrateur extends Personne{
 				+ ", lastModifiedDate=" + lastModifiedDate + ", getId()=" + getId() + ", getNom()=" + getNom()
 				+ ", getPrenom()=" + getPrenom() + ", getAdress()=" + getAdress() + ", getEmail()=" + getEmail()
 				+ ", getTelephone()=" + getTelephone() + ", getUsername()=" + getUsername() + ", getPassword()="
-				+ getPassword() + ", getRole()=" + getRole() + ", toString()=" + super.toString() + ", getCreatedBy()="
-				+ getCreatedBy() + ", getCreatedDate()=" + getCreatedDate() + ", getLastModifiedBy()="
-				+ getLastModifiedBy() + ", getLastModifiedDate()=" + getLastModifiedDate() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + "]";
+				+ getPassword() + ", getRole()=" + getRole() + ", getIsVerified()=" + getIsVerified() + ", getProfil()="
+				+ getProfil() + ", toString()=" + super.toString() + ", getCreatedBy()=" + getCreatedBy()
+				+ ", getCreatedDate()=" + getCreatedDate() + ", getLastModifiedBy()=" + getLastModifiedBy()
+				+ ", getLastModifiedDate()=" + getLastModifiedDate() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + "]";
 	}
+	
+	
+
+	
+	
+
+
 	
 	
 	

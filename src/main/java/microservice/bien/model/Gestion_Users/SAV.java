@@ -13,8 +13,8 @@ public class SAV extends Personne{
     public SAV() {
     }
 
-    public SAV(String nom, String prenom, String adress, String email, String telephone, String username, String password, Long id, Role role) {
-        super(nom, prenom, adress, email, telephone, username, password,role);
+    public SAV( String profil,String nom, String prenom, String adress, String email, String telephone, String username, String password, Long id, Role role) {
+        super(profil, nom, prenom, adress, email, telephone, username, password,role);
         this.id = id;
     }
 

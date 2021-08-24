@@ -17,12 +17,16 @@ public class Type_Publication extends BaseEntity {
 
     @Column(name = "libelle", nullable = false)
     private String libelle;
+    
+    
+    @Column(name = "commentaires", nullable = false)
+    private String commentaires;
 
     public Type_Publication()
     {
     }
 
-    public Type_Publication(Integer id_type_publication, String code, String libelle) {
+    public Type_Publication(String commentaires, Integer id_type_publication, String code, String libelle) {
         this.id_type_publication = id_type_publication;
         this.code = code;
         this.libelle = libelle;
@@ -52,14 +56,21 @@ public class Type_Publication extends BaseEntity {
         this.libelle = libelle;
     }
 
-	/*public List<Publication> getPublications() {
-		return publications;
+	public String getCommentaires() {
+		return commentaires;
 	}
 
-	public void setPublications(List<Publication> publications) {
-		this.publications = publications;
+	public void setCommentaires(String commentaires) {
+		this.commentaires = commentaires;
 	}
-	*/
+
+	@Override
+	public String toString() {
+		return "Type_Publication [id_type_publication=" + id_type_publication + ", code=" + code + ", libelle="
+				+ libelle + ", commentaires=" + commentaires + "]";
+	}
+    
+   
     
     
 }

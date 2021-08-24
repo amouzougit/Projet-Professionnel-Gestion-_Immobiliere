@@ -37,6 +37,9 @@ public class Personne extends BaseEntity {
     
 	@Column(name = "isVerified", nullable = false)
 	private Boolean isVerified = false;
+	
+	@Column(name = "profil", nullable = false)
+	private String profil ;
     
     
     @ManyToOne
@@ -47,7 +50,7 @@ public class Personne extends BaseEntity {
 
     }
 
-    public Personne(String nom, String prenom, String adress, String email, String telephone,String username,String password,Role role) {
+    public Personne(String profil, String nom, String prenom, String adress, String email, String telephone,String username,String password,Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.adress = adress;
@@ -56,6 +59,7 @@ public class Personne extends BaseEntity {
         this.password = password;
         this.username = username;
         this.role = role;
+        this.profil = profil;
     }
 
     public Long getId() {
@@ -138,6 +142,14 @@ public class Personne extends BaseEntity {
 	public void setIsVerified(Boolean isVerified) {
 		this.isVerified = isVerified;
 	}
+	
+	public String getProfil() {
+		return profil;
+	}
+
+	public void setProfil(String profil) {
+		this.profil = profil;
+	}
 
 	@Override
     public String toString() {
@@ -150,6 +162,7 @@ public class Personne extends BaseEntity {
                 ", telephone='" + telephone + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", profil='" + profil + '\'' +
 
                 '}';
 

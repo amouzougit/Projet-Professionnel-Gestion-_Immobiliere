@@ -2,6 +2,8 @@ package microservice.bien.serviceImpl.Gestion_Immobilier;
 
 import microservice.bien.dao.Gestion_Immobilier.BienDao;
 import microservice.bien.model.Gestion_Immobilier.Bien;
+import microservice.bien.model.Gestion_Users.AgenceImmobiliere;
+import microservice.bien.model.Gestion_Users.Agent_Immobilier;
 import microservice.bien.service.Gestion_Immobilier.BienService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +48,16 @@ public class BienServiceImpl implements BienService {
 		this.bienDao.deleteAll();
 
 	}
+
+	@Override
+	public List<Bien> findByAgentImmobilier(Agent_Immobilier agenceImmobilier) {
+		return this.bienDao.findByAgentImmobilier(agenceImmobilier);
+	}
+
+	@Override
+	public Integer countByAgentImmobilier(Agent_Immobilier agenceImmobilier) {
+		return this.bienDao.countByAgentImmobilier(agenceImmobilier);
+	}
+
+
 }

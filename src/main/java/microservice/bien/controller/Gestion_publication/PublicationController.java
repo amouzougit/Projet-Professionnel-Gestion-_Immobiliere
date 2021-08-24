@@ -1,11 +1,9 @@
 package microservice.bien.controller.Gestion_publication;
 
 
-import microservice.bien.model.Gestion_Users.Agent_Immobiliere;
 import microservice.bien.model.Gestion_publication.Publication;
 import microservice.bien.service.Gestion_publication.PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -25,6 +23,9 @@ public class PublicationController {
     public Publication save(@RequestBody Publication publication)
     {
         try{
+        	publication.setCode("code");
+        	publication.setStatus(true);
+        	publication.setCode(System.currentTimeMillis()+"");
             publication = this.publicationService.save(publication);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
@@ -95,4 +96,20 @@ public class PublicationController {
     	publicationService.save(publicationObj);
     	return publicationObj;
  }
+    
+    @GetMapping("/findbynumber/{number}")
+    public List< Publication> findByNumber(@PathVariable Integer number) {
+    	List< Publication> publications = this.publicationService.getAll();
+    	
+    	if(publications.size()>= number) {	
+    		publications = publications.subList(
+    			(this.publicationService.getAll().size()-1) - number, 			
+    			this.publicationService.getAll().size()-1
+    			);
+    	}
+    			
+    	return publications;
+ }
+    
+    
 }

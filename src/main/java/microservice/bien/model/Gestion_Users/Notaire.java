@@ -26,8 +26,8 @@ public class Notaire extends Personne{
     public Notaire(){
     }
 
-    public Notaire(String nom, String prenom, String adress, String email, String telephone, String password, Long id, String nom_cabinet,String carte_identite,String username, Role role) {
-        super(nom, prenom, adress, email, telephone,username,password,role);
+    public Notaire(String profil, String nom, String prenom, String adress, String email, String telephone, String password, Long id, String nom_cabinet,String carte_identite,String username, Role role) {
+        super(profil, nom, prenom, adress, email, telephone,username,password,role);
         this.id = id;
         this.nom_cabinet = nom_cabinet;
         this.carte_identite =carte_identite;

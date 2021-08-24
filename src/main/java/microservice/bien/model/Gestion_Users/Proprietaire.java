@@ -17,8 +17,8 @@ public class Proprietaire extends Personne{
     public Proprietaire(){
 
     }
-    public Proprietaire(String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
-        super(nom, prenom, adress, email, telephone,username,password,role);
+    public Proprietaire(String profil, String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
+        super(profil, nom, prenom, adress, email, telephone,username,password,role);
         this.id = id;
     }
 	public Long getId() {

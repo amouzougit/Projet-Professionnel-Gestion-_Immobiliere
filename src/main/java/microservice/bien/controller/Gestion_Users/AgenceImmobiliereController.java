@@ -1,6 +1,7 @@
 package microservice.bien.controller.Gestion_Users;
 
 
+import microservice.bien.model.Gestion_Immobilier.Bien;
 import microservice.bien.model.Gestion_Users.AgenceImmobiliere;
 import microservice.bien.model.Gestion_Users.Agent_Immobilier;
 import microservice.bien.service.Gestion_Users.AgenceImmobiliereService;
@@ -95,5 +96,9 @@ public class AgenceImmobiliereController {
 		  agenceImmobiliereService.save(agenceimmobiliereObj);
 	    	return agenceimmobiliereObj;
 	 }
+	  
+
+	  
+	  
 
 }

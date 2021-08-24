@@ -1,11 +1,14 @@
 package microservice.bien.controller.Gestion_Users;
 
 
+import microservice.bien.model.Gestion_Users.AgenceImmobiliere;
 import microservice.bien.model.Gestion_Users.Agent_Immobilier;
 import microservice.bien.model.Gestion_Users.Agent_Immobiliere;
+import microservice.bien.service.Gestion_Users.AgenceImmobiliereService;
 import microservice.bien.service.Gestion_Users.Agent_ImmobilierService;
+import microservice.bien.service.Gestion_Users.Agent_ImmobiliereService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +23,16 @@ public class Agent_ImmobilierController {
     @Autowired
     //@Qualifier(value ="agentImmobilierService")
     private Agent_ImmobilierService agent_immobilierService;
+    
+    
+	@Autowired
+	//@Qualifier(value ="agenceImmobiliereService")
+	private AgenceImmobiliereService agenceImmobiliereService;
+    
+
+	@Autowired
+	//@Qualifier(value ="agent_immobiliereServiceService")
+	private Agent_ImmobiliereService agent_immobiliereService;
 
     @RequestMapping(value ="/save", method = RequestMethod.POST,headers = "Accept=application/json")
     @ResponseBody
@@ -95,6 +108,32 @@ public class Agent_ImmobilierController {
     	agent_immobilierService.save(agent_immobilierObj);
     	return agent_immobilierObj;
  }
+    
+    
+	  @GetMapping("/findbyagenceimmobiliere/{agence_id}")
+	   public List< Agent_Immobilier> findByAgenceImmobiliere(@PathVariable Integer agence_id) {
+	    	
+		   List<Agent_Immobiliere> agentimmobilieres = this.agent_immobiliereService.getAll();
+		   
+		   AgenceImmobiliere agenceimmobiliere = this.agenceImmobiliereService.getById(agence_id);
+		   
+		   List<Agent_Immobilier> agentimmobiliers = new ArrayList<Agent_Immobilier>();
+		   
+		   for(Agent_Immobiliere agentimmobiliere: agentimmobilieres) {
+			   
+			   if(agentimmobiliere.getAgenceImmobiliere().getId_agenceimmobiliere() == agenceimmobiliere.getId_agenceimmobiliere()) {
+				   
+				   agentimmobiliers.add(agentimmobiliere.getAgent_immobilier());
+			   }
+		   }
+		   
+		   return agentimmobiliers;
+		   
+		   
+ 
+	    
+	   
+	 }
     
     
 }

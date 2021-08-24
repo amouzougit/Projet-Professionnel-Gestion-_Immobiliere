@@ -2,6 +2,8 @@ package microservice.bien.model.Gestion_Immobilier;
 
 import microservice.bien.model.BaseEntity;
 
+import java.util.Random;
+
 import javax.persistence.*;
 
 @Entity
@@ -41,7 +43,7 @@ public class Document_Bien extends BaseEntity {
     }
 
     public Document_Bien(TypeDocument typeDocument, String url, String code, String libelle, Boolean status, Bien bien) {
-        this.code = code;
+        this.code = generateCode();
         this.libelle = libelle;
         this.status = status;
         this.bien = bien;
@@ -105,6 +107,9 @@ public class Document_Bien extends BaseEntity {
 		this.typeDocument = typeDocument;
 	}
 	
+	private String generateCode() {
+		return new Random(System.currentTimeMillis()).toString();
+	}
 	
 	
 	

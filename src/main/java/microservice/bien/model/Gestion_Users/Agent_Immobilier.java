@@ -15,8 +15,8 @@ public class Agent_Immobilier extends Personne{
     	
     }
  
-    public Agent_Immobilier(String nom, String prenom, String adress, String email, String telephone, String password, Long id, String username, Role role) {
-        super(nom, prenom, adress, email, telephone,username,password,role);
+    public Agent_Immobilier(String profil, String nom, String prenom, String adress, String email, String telephone, String password, Long id, String username, Role role) {
+        super(profil, nom, prenom, adress, email, telephone,username,password,role);
         this.id = id;
 
     }

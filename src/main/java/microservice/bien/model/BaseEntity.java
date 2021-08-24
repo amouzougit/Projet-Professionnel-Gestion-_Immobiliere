@@ -16,7 +16,7 @@ public class BaseEntity {
 
 	@Column(name = "lastModifiedDate", nullable = true)
 	protected Date lastModifiedDate;
-
+	
 	public BaseEntity(){
 
 	}
@@ -26,6 +26,7 @@ public class BaseEntity {
 		this.createdDate = createdDate;
 		this.lastModifiedBy = lastModifiedBy;
 		this.lastModifiedDate = lastModifiedDate;
+		
 	}
 
 	public Long getCreatedBy() {
@@ -59,7 +60,6 @@ public class BaseEntity {
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
 	}
-	
 
 	@Override
 	public String toString() {

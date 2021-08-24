@@ -5,6 +5,8 @@ import microservice.bien.model.Gestion_Achat_Location.Operation;
 import microservice.bien.model.Gestion_Immobilier.Bien;
 
 import javax.persistence.*;
+
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -41,19 +43,23 @@ public class Publication extends BaseEntity {
 
     @Column(name = "montant", nullable = false)
     private Double montant;
+    
+    @Column(name = "description", nullable = false)
+    private String description;
 
 
     public Publication(){
 
     }
 
-    public Publication(Long id_publication, Bien bien, Date date_publication, Double location_vente, Boolean status, String code,Double montant) {
+    public Publication(String description,Long id_publication, Bien bien, Date date_publication, Double location_vente, Boolean status, String code,Double montant) {
         this.id_publication = id_publication;
         this.bien = bien;
         this.date_publication = date_publication;
         this.status = status;
         this.code = code;
         this.montant = montant;
+        this.description = description;
     }
 
     public Long getId_publication()
@@ -113,6 +119,23 @@ public class Publication extends BaseEntity {
 	public void setType_publication(Type_Publication type_publication) {
 		this.type_publication = type_publication;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return "Publication [id_publication=" + id_publication + ", bien=" + bien + ", type_publication="
+				+ type_publication + ", date_publication=" + date_publication + ", status=" + status + ", code=" + code
+				+ ", montant=" + montant + ", description=" + description + "]";
+	}
+	
+	
     
 }
 

@@ -15,8 +15,8 @@ public class Demarcheur  extends Personne{
     public Demarcheur()
     {
     }
-    public Demarcheur(String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
-        super(nom, prenom, adress, email, telephone,password,username, role);
+    public Demarcheur(String profil, String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
+        super(profil, nom, prenom, adress, email, telephone,password,username, role);
         this.id = id;
     }
 	public Long getId() {

@@ -12,8 +12,8 @@ public class Client extends Personne {
     public Client()
     {
     }
-    public Client(String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
-        super(nom, prenom, adress, email, telephone, password,username,role);
+    public Client(String profil, String nom, String prenom, String adress, String email, String telephone, String password, Long id,String username, Role role) {
+        super(profil, nom, prenom, adress, email, telephone, password,username,role);
         this.id = id;
     }
 	public Long getId() {
