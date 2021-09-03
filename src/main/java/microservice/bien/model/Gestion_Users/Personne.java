@@ -55,7 +55,7 @@ public class Personne extends BaseEntity {
         this.prenom = prenom;
         this.adress = adress;
         this.email = email;
-        this.telephone = telephone;
+       this.telephone = telephone;
         this.password = password;
         this.username = username;
         this.role = role;
@@ -102,12 +102,12 @@ public class Personne extends BaseEntity {
         this.email = email;
     }
 
-    public String getTelephone() {
+   public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+   public void setTelephone(String telephone) {
+       this.telephone = telephone;
     }
 
     public String getUsername() {

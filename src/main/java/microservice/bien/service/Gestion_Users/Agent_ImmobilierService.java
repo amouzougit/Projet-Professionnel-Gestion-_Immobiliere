@@ -10,7 +10,7 @@ public interface Agent_ImmobilierService {
 
     public List<Agent_Immobilier> getAll();
 
-    public Agent_Immobilier getById(Integer id);
+    public Agent_Immobilier getById(Long id);
 
     public Agent_Immobilier save(Agent_Immobilier agent_immobilier);
 

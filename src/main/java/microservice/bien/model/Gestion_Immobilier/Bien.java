@@ -48,8 +48,7 @@ public class Bien extends BaseEntity {
 
     @Column(name = "surface", nullable = false)
     private Float surface;
-
-
+    
     @Column(name = "disponibilite", nullable = false)
     private Boolean disponibilite;
 
@@ -81,12 +80,15 @@ public class Bien extends BaseEntity {
     @Column(name = "description", nullable = false)
     private String description;
     
+    @Column(name = "rue", nullable = false)
+    private String rue;
+    
     public Bien()
     {
 
     }
 
-    public Bien(String description, Integer nbre_balcon, Integer nbre_etage,Integer nbre_salon,Integer nbre_chambre,Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude, Agent_Immobilier agentImmobilier,Type_Bien type_bien,Demarcheur demarcheur,Proprietaire proprietaire,Quartier quartier,String prix) {
+    public Bien(String rue, String description, Integer nbre_balcon, Integer nbre_etage,Integer nbre_salon,Integer nbre_chambre,Long id_bien, String code, String libelle, Date date_ajout, Float surface, Boolean disponibilite, Boolean statuts, String certificat,int latitude,int longitude, Agent_Immobilier agentImmobilier,Type_Bien type_bien,Demarcheur demarcheur,Proprietaire proprietaire,Quartier quartier,String prix) {
         this.id_bien = id_bien;
         this.code = code;
         this.libelle = libelle;
@@ -107,6 +109,8 @@ public class Bien extends BaseEntity {
         this.nbre_chambre = nbre_chambre;
         this.nbre_balcon = nbre_balcon;
         this.description = description;
+        this.rue = rue;
+      
 
 
     }
@@ -191,7 +195,6 @@ public class Bien extends BaseEntity {
         this.certificat = certificat;
     }
     
-
     public Type_Bien getType_bien() {
 		return type_bien;
 	}
@@ -266,13 +269,20 @@ public class Bien extends BaseEntity {
 	}
 	
 	
-
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getRue() {
+		return rue;
+	}
+
+	public void setRue(String rue) {
+		this.rue = rue;
 	}
 
 	@Override
@@ -283,9 +293,11 @@ public class Bien extends BaseEntity {
 				+ ", disponibilite=" + disponibilite + ", latitude=" + latitude + ", longitude=" + longitude
 				+ ", statuts=" + statuts + ", certificat=" + certificat + ", nbre_chambre=" + nbre_chambre
 				+ ", nbre_salon=" + nbre_salon + ", nbre_etage=" + nbre_etage + ", nbre_balcon=" + nbre_balcon
-				+ ", description=" + description + "]";
+				+ ", description=" + description + ", rue=" + rue + "]";
 	}
 	
+	
+
 	
 	
 	

@@ -30,6 +30,7 @@ public class Type_Publication extends BaseEntity {
         this.id_type_publication = id_type_publication;
         this.code = code;
         this.libelle = libelle;
+        this.commentaires = commentaires;
     }
 
     public Integer getId_type_publication() {

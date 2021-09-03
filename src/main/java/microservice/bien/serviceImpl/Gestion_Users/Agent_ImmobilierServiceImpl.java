@@ -21,7 +21,7 @@ public class Agent_ImmobilierServiceImpl implements Agent_ImmobilierService {
     }
 
     @Override
-    public Agent_Immobilier getById(Integer id) {
+    public Agent_Immobilier getById(Long id) {
         return this.agent_immobilierDao.getOne(id);
     }
 

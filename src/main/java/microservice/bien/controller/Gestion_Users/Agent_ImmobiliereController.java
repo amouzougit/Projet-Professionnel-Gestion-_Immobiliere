@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 @RestController
 //@CrossOrigin("*")
-@RequestMapping(value= "/service/agentImmobiliereService")
+@RequestMapping(value= "/service/agentImmobiliere")
 public class Agent_ImmobiliereController {
 
 	@Autowired

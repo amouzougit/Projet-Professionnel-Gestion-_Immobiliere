@@ -1,10 +1,13 @@
 package microservice.bien.serviceImpl.Gestion_publication;
 
 import microservice.bien.dao.Gestion_publication.PublicationDao;
+import microservice.bien.model.Gestion_Immobilier.Type_Bien;
 import microservice.bien.model.Gestion_publication.Publication;
+import microservice.bien.model.Gestion_publication.Type_Publication;
 import microservice.bien.service.Gestion_publication.PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +23,7 @@ public class PublicationServiceImpl implements PublicationService {
 	}
 
 	@Override
-	public Publication getById(Integer id) {
+	public Publication getById(Long id) {
 		return publicationDao.getOne(id);
 	}
 
@@ -45,4 +48,28 @@ public class PublicationServiceImpl implements PublicationService {
 		this.publicationDao.deleteAll();
 
 	}
+
+//	@Override
+//	public List<Publication> lastSixPublications(){
+//		
+//		return this.publicationDao.lastSixPublications();
+//	}
+////	@Override
+//	 default List<Publication> lastSixPublications(Integer number) {
+//		    return this.lastSixPublications(number, PageRequest.of(0,6));
+//		 }
+
+//	@Override
+//	public List<Publication> findByTypePublication(Type_Publication typePublication) {
+//		
+//		return this.publicationDao.findByTypePublication(typePublication);
+//	}
+//
+//	@Override
+//	public List<Type_Bien> getByTypeBien(Type_Bien typeBien) {
+//		return this.publicationDao.getByTypeBien(typeBien);
+//	}
+
+
+
 }

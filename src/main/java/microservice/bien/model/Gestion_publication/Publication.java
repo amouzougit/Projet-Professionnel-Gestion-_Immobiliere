@@ -21,19 +21,13 @@ public class Publication extends BaseEntity {
     @JoinColumn(name="id_bien", nullable = false)
     private Bien bien;
 
-
     @ManyToOne
     @JoinColumn(name="id_type_publication", nullable = false)
     private Type_Publication type_publication;
 
 
-    /*@OneToMany(mappedBy="publication", fetch=FetchType.EAGER)
-    private List<Operation> operations;
-    */
-
     @Column(name = "date_publication", nullable = false)
-    private Date date_publication;
-
+    private Date date_publication = new Date();
 
     @Column(name = "status", nullable = false)
     private Boolean status ;
@@ -46,13 +40,16 @@ public class Publication extends BaseEntity {
     
     @Column(name = "description", nullable = false)
     private String description;
+    
+    @Column(name = "image", nullable = false)
+    private String image;
 
 
     public Publication(){
 
     }
 
-    public Publication(String description,Long id_publication, Bien bien, Date date_publication, Double location_vente, Boolean status, String code,Double montant) {
+    public Publication(String image, String description,Long id_publication, Bien bien, Date date_publication, Double location_vente, Boolean status, String code,Double montant) {
         this.id_publication = id_publication;
         this.bien = bien;
         this.date_publication = date_publication;
@@ -60,6 +57,7 @@ public class Publication extends BaseEntity {
         this.code = code;
         this.montant = montant;
         this.description = description;
+        this.image = image;
     }
 
     public Long getId_publication()
@@ -126,6 +124,16 @@ public class Publication extends BaseEntity {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	@Override

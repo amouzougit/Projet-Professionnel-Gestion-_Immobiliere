@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 //@CrossOrigin("*")
-@RequestMapping(value="/sevice/agentImmobilier")
+@RequestMapping(value="/service/agentImmobilier")
 public class Agent_ImmobilierController {
 
     @Autowired

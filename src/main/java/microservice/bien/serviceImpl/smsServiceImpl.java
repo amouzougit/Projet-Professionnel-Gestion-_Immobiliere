@@ -76,7 +76,7 @@ public class smsServiceImpl  implements SmsService{
 		    SmsApi apiInstance = new SmsApi(defaultClient);
 
 		    SmsMessage smsMessage=new SmsMessage();
-		    smsMessage.body("code de verification: "+code);
+		    smsMessage.body("Afe Nye vous ai envoyer un message: "+code);
 		    smsMessage.to(telephone);
 		    smsMessage.source("java");
 

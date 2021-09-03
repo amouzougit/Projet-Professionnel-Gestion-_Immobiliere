@@ -14,12 +14,11 @@ public class Agent_Immobiliere extends BaseEntity {
     @Column(name ="id")
     private Integer id;
     
-   
-    @Column(name = "date_debut", nullable = false)
-    protected String date_debut;
+    @Column(name = "date_debut", nullable = true)
+    protected Date date_debut = new Date();
 
     @Column(name = "date_fin", nullable = true)
-    private Date date_fin;
+    private Date date_fin =  new Date();
 
     @Column(name = "status", nullable = false)
     private Boolean status;
@@ -38,10 +37,8 @@ public class Agent_Immobiliere extends BaseEntity {
     }
 
 
-	public Agent_Immobiliere(Integer id, String date_debut, Date date_fin, Boolean status,
+	public Agent_Immobiliere( Date date_debut, Date date_fin, Boolean status,
 			Agent_Immobilier agent_immobilier, AgenceImmobiliere agenceImmobiliere) {
-		super();
-		this.id = id;
 		this.date_debut = date_debut;
 		this.date_fin = date_fin;
 		this.status = status;
@@ -60,12 +57,12 @@ public class Agent_Immobiliere extends BaseEntity {
 	}
 
 
-	public String getDate_debut() {
+	public Date getDate_debut() {
 		return date_debut;
 	}
 
 
-	public void setDate_debut(String date_debut) {
+	public void setDate_debut(Date date_debut) {
 		this.date_debut = date_debut;
 	}
 

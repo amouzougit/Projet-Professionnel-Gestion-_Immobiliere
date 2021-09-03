@@ -53,14 +53,13 @@ public class BienController {
     private Agent_ImmobilierService agent_immobilierService;
     
     
-
     @RequestMapping(value ="/save", method = RequestMethod.POST,headers = "Accept=application/json")
     @ResponseBody public Bien save(@RequestBody Bien bien)
     {
         try{
         	bien.setStatuts(true);
         	bien.setDisponibilite(true);
-        	bien.setCode("biem" + System.currentTimeMillis()+"");
+        	bien.setCode(System.currentTimeMillis()+bien.getLibelle().substring(bien.getLibelle().length()-3, bien.getLibelle().length()-1));
             bien = this.bienService.createBien(bien);
         }catch (Exception ex){
             System.out.println(ex.getMessage());
@@ -136,8 +135,7 @@ public class BienController {
 		}
 	}
 	
-	
-	
+   
 	@RequestMapping(value="/findByAgenceImmobiliere", method = RequestMethod.POST , headers = "Accept=application/json")
 	@ResponseBody public Agent_Immobilier findByAgentImmobilier(@RequestBody Agent_Immobilier agenceimmobiliere) {	{
         try {
@@ -219,7 +217,7 @@ public class BienController {
     
     
     @GetMapping("/findbyagentimmobilier/{id}")
-    public List< Bien> findByAgent_Immobilier(@PathVariable Integer id) {
+    public List< Bien> findByAgent_Immobilier(@PathVariable Long id) {
     	
     	//recuperation de l'agent immobilier par son id
     	Agent_Immobilier agentimmobilier = this.agent_immobilierService.getById(id);
@@ -230,11 +228,12 @@ public class BienController {
     	
     	//retour des biens de l'agent immobilier
     	return biens;
-    	
-    	
-    
    
  }
+    
+    
+
+    
     
    
 

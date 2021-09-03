@@ -40,6 +40,9 @@ public class AgenceImmobiliere extends BaseEntity {
         this.nom_agence_immobiliere = nom_agence_immobiliere;
         this.adress = adress;
         this.logo = logo;
+        this.email = email;
+        this.description = description;
+        this.code = code;
     }
 
     public Integer getId_agenceimmobiliere()

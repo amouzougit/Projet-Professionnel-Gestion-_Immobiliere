@@ -1,10 +1,11 @@
+
 package microservice.bien.controller.Gestion_Users;
 import microservice.bien.service.smsService.SmsService;
 import microservice.bien.model.PersonneVerificationRequestData;
 import microservice.bien.model.SmsVerification;
-
-
-
+import microservice.bien.model.Gestion_Immobilier.Bien;
+import microservice.bien.model.Gestion_Immobilier.Document_Bien;
+import microservice.bien.model.Gestion_Immobilier.TypeDocument;
 import microservice.bien.model.Gestion_Users.Administrateur;
 import microservice.bien.model.Gestion_Users.Agent_Immobilier;
 import microservice.bien.model.Gestion_Users.Client;
@@ -27,12 +28,27 @@ import microservice.bien.service.Gestion_Users.SAVService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import ClickSend.ApiClient;
+import ClickSend.ApiException;
+import ClickSend.Api.SmsApi;
+import ClickSend.Model.SmsMessage;
+import ClickSend.Model.SmsMessageCollection;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/service/personne")
@@ -135,7 +151,7 @@ public class PersonneController {
 				
 				//envoi de sms 
 				
-			/*	String code = smsService.sendCode(createPersonne.getTelephone());
+			    String code = smsService.sendCode(createPersonne.getTelephone());
 				if(code == null)
 				{
 					return ResponseEntity.badRequest().body("error lors de l'envoi de code");
@@ -143,7 +159,7 @@ public class PersonneController {
 				smsService.save(
 						new SmsVerification(code,createPersonne.getTelephone())
 				);
-				*/
+				
 				
 				
 				
@@ -377,6 +393,38 @@ public class PersonneController {
 		
 
 	}
+	
+	
+    @RequestMapping(value ="/profil/ajout/{personne_id}", method = RequestMethod.POST)
+    @ResponseBody public ResponseEntity<?> ajouter_document(
+    		@PathVariable("personne_id") Long personne_id, 
+    		@RequestParam("file") MultipartFile file) throws IOException
+    {
+		/* try{ */
+        	String location = "/static/files";
+        	Resource resource = new ClassPathResource(location);
+        	String url = resource.getURL().toString().substring(6);
+        	System.out.println(url);
+        	 Path rootLocation = Paths.get("E:\\Afe-Nyui\\MyApp\\MyApp\\src\\assets\\images\\document_image");
+        	 
+        	Personne  personne = this.personneService.getById(personne_id);
+        	if(personne == null) {
+        		ResponseEntity.badRequest().body("pas de personne trouver avec cet id");
+        	}
+        	
+        	String file_name = UUID.randomUUID().toString();
+        	
+			Files.copy(file.getInputStream(), rootLocation.resolve(file_name + file.getOriginalFilename()));
+			
+			personne.setProfil(file_name  + file.getOriginalFilename());
+			
+			 Personne update_personne = this.personneService.save(personne);
+			
+        	
+			return ResponseEntity.ok(update_personne);
+
+        }
+    
 
 	
 	
@@ -439,11 +487,53 @@ public class PersonneController {
 		
 	}
 	
+	
+	@RequestMapping(value="/generateCode/{telephone}/{code}", method = RequestMethod.GET , headers = "Accept=application/json")
+	@ResponseBody public Boolean generateCode(@PathVariable String telephone, @PathVariable String code ) {
+		Boolean reponse = false;
+		
+		 ApiClient defaultClient = new ApiClient();
+		    defaultClient.setUsername("pidenam.tchodou@ipnetinstitute.com");
+		    defaultClient.setPassword("E50384AA-7B71-B51B-DAB9-AC8E58711970");
+		    SmsApi apiInstance = new SmsApi(defaultClient);
+
+		    SmsMessage smsMessage=new SmsMessage();
+		    smsMessage.body("code de verification: "+code);
+		    smsMessage.to(telephone);
+		    smsMessage.source("java");
+
+		    List<SmsMessage> smsMessageList=Arrays.asList(smsMessage);
+		    // SmsMessageCollection | SmsMessageCollection model
+		    SmsMessageCollection smsMessages = new SmsMessageCollection();
+		    smsMessages.messages(smsMessageList);
+		    try {
+		        String result = apiInstance.smsSendPost(smsMessages);
+		        System.out.println(result);
+		        
+		        reponse = true;
+		    } catch (ApiException e) {
+		        System.err.println("Exception when calling SmsApi#smsSendPost");
+		        e.printStackTrace();
+		    }
+		    return reponse;
+		    
+		    
+		    
+		  }
+		
+	
+		
+		
+	
+	
+	
 	@PutMapping("/{id}/update")
     public Personne update(@RequestBody Personne personneObj) {
 		personneService.save(personneObj);
     	return personneObj;
  }
+	
+	
 	
 	
 
