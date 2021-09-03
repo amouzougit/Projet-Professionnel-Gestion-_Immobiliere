@@ -1,6 +1,5 @@
 package microservice.bien.model.Gestion_Users;
 
-import microservice.bien.model.Gestion_Immobilier.Bien;
 
 import javax.persistence.*;
 import java.util.List;

@@ -24,6 +24,9 @@ public class CreatePersonne {
 
     private String carte_identite;
     
+    private String profil;
+
+    
 	public CreatePersonne() {
 		}
 
@@ -106,6 +109,15 @@ public class CreatePersonne {
 	public void setCarte_identite(String carte_identite) {
 		this.carte_identite = carte_identite;
 	}
+
+	public String getProfil() {
+		return profil;
+	}
+
+	public void setProfil(String profil) {
+		this.profil = profil;
+	}
+	
 	
 	
 	

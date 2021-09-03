@@ -1,4 +1,4 @@
-package microservice.bien.sms;
+/*package microservice.bien.sms;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +12,7 @@ import ClickSend.Model.SmsMessageCollection;
 
 public class ClickSendService {
 
-	public static  String API_USERNAME = "pidenam.tchodou@ipnetinstitute.com";
+	//public static  String API_USERNAME = "pidenam.tchodou@ipnetinstitute.com";
 	public static  String API_KEY = "E50384AA-7B71-B51B-DAB9-AC8E58711970";
 	
 	public static int generateDigit() {
@@ -47,3 +47,5 @@ public class ClickSendService {
 	  }
 
 }
+
+*/

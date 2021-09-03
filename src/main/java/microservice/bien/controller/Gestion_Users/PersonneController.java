@@ -87,8 +87,10 @@ public class PersonneController {
 			Integer roleId = createPersonne.getRoleId() ;
 			String carte_identite = createPersonne.getCarte_identite() ;
 			String nom_cabinet = createPersonne.getNom_cabinet() ;
+			String profil = createPersonne.getProfil() ;
+
 			
-			
+		
 			
 			if(!username.isEmpty()
 				&& !email.isEmpty()
@@ -133,7 +135,7 @@ public class PersonneController {
 				
 				//envoi de sms 
 				
-				String code = smsService.sendCode(createPersonne.getTelephone());
+			/*	String code = smsService.sendCode(createPersonne.getTelephone());
 				if(code == null)
 				{
 					return ResponseEntity.badRequest().body("error lors de l'envoi de code");
@@ -141,6 +143,7 @@ public class PersonneController {
 				smsService.save(
 						new SmsVerification(code,createPersonne.getTelephone())
 				);
+				*/
 				
 				
 				
@@ -159,6 +162,8 @@ public class PersonneController {
 					admin.setPassword(password);
 					admin.setRole(role);
 					admin.setTelephone(telephone);
+					admin.setProfil(profil);
+
 					
 					
 					Administrateur administrateur = administrateurService.save(admin);
@@ -191,6 +196,8 @@ public class PersonneController {
 					notair.setTelephone(telephone);
 					notair.setCarte_identite(carte_identite);
 					notair.setNom_cabinet(nom_cabinet);
+					notair.setProfil(profil);
+
 					
 					Notaire notaire = notaireService.save(notair);
 					return ResponseEntity.ok(notaire);
@@ -208,6 +215,9 @@ public class PersonneController {
 					clien.setPassword(password);
 					clien.setRole(role);
 					clien.setTelephone(telephone);
+					clien.setProfil(profil);
+
+					
 					Client client = clientService.save(clien);
 					return ResponseEntity.ok(client);
 					
@@ -224,6 +234,8 @@ public class PersonneController {
 					agentImm.setPassword(password);
 					agentImm.setRole(role);
 					agentImm.setTelephone(telephone);
+					agentImm.setProfil(profil);
+
 					Agent_Immobilier agent_immobilier = agent_immobilierService.save(agentImm);
 					return ResponseEntity.ok(agent_immobilier);
 					
@@ -240,6 +252,9 @@ public class PersonneController {
 					proprio.setPassword(password);
 					proprio.setRole(role);
 					proprio.setTelephone(telephone);
+					proprio.setProfil(profil);
+
+					
 					Proprietaire proprietaire = proprietaireService.save(proprio);
 					return ResponseEntity.ok(proprietaire);
 					
@@ -256,6 +271,9 @@ public class PersonneController {
 					demar.setPassword(password);
 					demar.setRole(role);
 					demar.setTelephone(telephone);
+					demar.setProfil(profil);
+
+					
 					Demarcheur demarcheur = demarcheurService.save(demar);
 					return ResponseEntity.ok(demarcheur);
 					
@@ -272,6 +290,9 @@ public class PersonneController {
 					sav.setPassword(password);
 					sav.setRole(role);
 					sav.setTelephone(telephone);
+					sav.setProfil(profil);
+
+					
 					SAV savs = savService.save(sav);
 					return ResponseEntity.ok(savs);
 					
@@ -302,6 +323,10 @@ public class PersonneController {
 			}
 			else if(roleId == null) {
 				return ResponseEntity.badRequest().body("roleId obligatoire");
+			}
+			
+			else if(profil.isEmpty()) {
+				return ResponseEntity.badRequest().body("profil obligatoire");
 			}
 			return ResponseEntity.badRequest().body("requete echouer");
 
