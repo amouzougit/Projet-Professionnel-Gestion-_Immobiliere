@@ -5,6 +5,7 @@ import microservice.bien.model.Gestion_Immobilier.Bien;
 import microservice.bien.model.Gestion_Immobilier.Document_Bien;
 import microservice.bien.model.Gestion_Immobilier.TypeDocument;
 import microservice.bien.model.Gestion_Immobilier.Type_Bien;
+import microservice.bien.model.Gestion_Users.Agent_Immobilier;
 import microservice.bien.model.Gestion_publication.Publication;
 import microservice.bien.service.Gestion_publication.PublicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ public class PublicationController {
     public Publication save(@RequestBody Publication publication)
     {
         try{
-        	publication.setCode("code");
-        	publication.setStatus(true);
+        	//publication.setCode("code");
+        	//publication.setStatus(true);
         	publication.setCode(System.currentTimeMillis()+"");
             publication = this.publicationService.save(publication);
         }catch (Exception ex){
@@ -258,6 +259,40 @@ public class PublicationController {
 			return ResponseEntity.ok(document_Bien_create);*/
 
         }
+    
+    @RequestMapping(value = "/getLastPublication", method = RequestMethod.GET, headers = "Accept=application/json")
+    @ResponseBody public List< Publication> getLastPublication()
+    {
+        List<Publication> lesPublication= new ArrayList<>();
+
+        try {
+            lesPublication = this.publicationService.getLastPublication();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return lesPublication;
+    }
+    
+    
+    @RequestMapping(value = "/publicationActive", method = RequestMethod.GET, headers = "Accept=application/json")
+    @ResponseBody public List< Publication> publicationActive(){
+    	
+    	 List<Publication> lesPublication= new ArrayList<>();
+
+         try {
+             lesPublication = this.publicationService.publicationActive();
+         } catch (Exception ex) {
+             System.out.println(ex.getMessage());
+         }
+
+         return lesPublication;
+    	
+    	
+    }
+    
+    
+    
     
     
     

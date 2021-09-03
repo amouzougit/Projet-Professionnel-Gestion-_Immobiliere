@@ -41,7 +41,7 @@ public class Publication extends BaseEntity {
     @Column(name = "description", nullable = false)
     private String description;
     
-    @Column(name = "image", nullable = false)
+    @Column(name = "image", nullable = true)
     private String image;
 
 

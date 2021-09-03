@@ -31,7 +31,10 @@ public interface PublicationService {
 		//public List<Publication> lastSixPublications (Integer number, Pageable pageable);
     
    
+    public List<Publication> publicationActive();
 	
+    
+    public List<Publication> getLastPublication();
 	
 
 

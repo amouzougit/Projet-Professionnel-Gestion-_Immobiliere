@@ -16,21 +16,33 @@ import org.springframework.stereotype.Repository;
 @Repository("publicationDao")
 public interface PublicationDao extends JpaRepository<Publication,Long> {
 	
+/*	
+	@Query(value ="SELECT p from publication p WHERE p.bien.typeBien = :typeBien AND p.status = true")
+	public List<Type_Bien> getByTypeBien(Type_Bien typeBien);
 	
-//	@Query(value ="SELECT p from publication p WHERE p.bien.typeBien = :typeBien AND p.status = true")
-//	public List<Type_Bien> getByTypeBien(Type_Bien typeBien);
-//	
-//	@Query(value ="SELECT p from publication p WHERE p.typepublication = :typepublication ")
-//	public List<Publication> findByTypePublication(Type_Publication typepublication);
+	@Query(value ="SELECT p from publication p WHERE p.typepublication = :typepublication ")
+	public List<Publication> findByTypePublication(Type_Publication typepublication);
 
 	
+	@Query( nativeQuery = true, value ="SELECT * from Publication p WHERE p.status = 1 order by p.createdDate desc limit 6")
+	 List<Publication> lastSixPublications(@Param("number") Integer number, Pageable pageable);
+
+
+	public List<Publication> lastSixPublications(Integer number, PageRequest of);
+	
+	*/
+	@Query( value = "SELECT * FROM Publication p WHERE p.status = 1", nativeQuery = true)
+	List<Publication> publicationActive();
+	
+	
+	@Query( value ="SELECT * FROM Publication p ORDER BY p.id_publication DESC",nativeQuery = true)
+	List<Publication> getLastPublication(PageRequest pageRequest);
+	
+			
+	
+	
+
 	//@Query( nativeQuery = true, value ="SELECT * from Publication p WHERE p.status = 1 order by p.createdDate desc limit 6")
-	// List<Publication> lastSixPublications(@Param("number") Integer number, Pageable pageable);
-
-
-	//public List<Publication> lastSixPublications(Integer number, PageRequest of);
-	
-	
 
 
 
